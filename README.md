@@ -1,1 +1,1 @@
-https://Alex-Klim93.github.io/test-page/
+https://alex-klim93.github.io/ClayDrilling/
