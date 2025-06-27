@@ -5,175 +5,206 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>БУРИМ ВСЁ - профессиональное бурение</title>
     <style>
-        /* Общие стили */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Шапка */
-        header {
-            background: linear-gradient(135deg, #1e5799 0%, #207cca 51%, #2989d8 100%);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-            border-bottom: 5px solid #ff6b6b;
-        }
-        
-        h1 {
-            font-size: 3em;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .tagline {
-            font-style: italic;
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-        
-        /* Блок услуг */
-        .services {
-            padding: 50px 0;
-            background-color: white;
-        }
-        
-        .service {
-            display: flex;
-            margin-bottom: 30px;
-            align-items: center;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-right: 20px;
-        }
-        
-        .service h3 {
-            color: #2989d8;
-            margin-top: 0;
-        }
-        
-        /* Блок клиентов */
-        .clients {
-            padding: 50px 0;
-            background-color: #ffefef;
-            text-align: center;
-        }
-        
-        .benefits {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .benefit {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 200px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .benefit img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        
-        /* Отзывы */
-        .reviews {
-            padding: 50px 0;
-            background-color: white;
-        }
-        
-        .review {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .review:before {
-            content: """;
-            font-size: 60px;
-            color: #ccc;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            line-height: 1;
-        }
-        
-        .review-author {
-            font-weight: bold;
-            text-align: right;
-            margin-top: 10px;
-            color: #2989d8;
-        }
-        
-        /* Акция */
-        .promo {
-            padding: 50px 0;
-            background-color: #2989d8;
-            color: white;
-            text-align: center;
-        }
-        
-        .promo h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        
-        /* Подвал */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        .contacts {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        
-        .funny-line {
-            font-style: italic;
-            color: #ff6b6b;
-        }
-        
-        /* Анимации */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-    </style>
+    /* Общие стили */
+    body {
+        font-family: 'Impact', 'Arial Black', 'Franklin Gothic Heavy', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #FFF8E1; /* Светло-бежевый фон */
+        color: #5D4037; /* Темно-коричневый текст */
+        line-height: 1.6;
+        letter-spacing: 0.5px;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Шапка с текстурированным фоном */
+    header {
+        background: 
+            linear-gradient(135deg, rgba(109, 76, 65, 0.9) 0%, rgba(141, 110, 99, 0.9) 51%, rgba(161, 136, 127, 0.9) 100%),
+            url('https://avatars.mds.yandex.net/i?id=1c5bf3f4b93e1fcf73138b645c1c9c50_l-4055778-images-thumbs&n=13') center/cover;
+        color: #FFF8E1;
+        padding: 40px 0;
+        text-align: center;
+        border-bottom: 5px solid #4E342E;
+        text-shadow: 2px 2px 0 #3E2723;
+    }
+    
+    h1, h2, h3 {
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0;
+    }
+    
+    h1 {
+        font-size: 3em;
+        -webkit-text-stroke: 1px #3E2723; /* Обводка текста */
+    }
+    
+    .tagline {
+        font-style: italic;
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+    
+    /* Блок услуг */
+    .services {
+        padding: 50px 0;
+        background-color: #EFEBE9; /* Светло-коричневый фон */
+    }
+    
+    .service {
+        display: flex;
+        margin-bottom: 30px;
+        align-items: center;
+        background: #D7CCC8; /* Средне-коричневый */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(78, 52, 46, 0.3);
+    }
+    
+    .service img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-right: 20px;
+        border: 3px solid #5D4037;
+    }
+    
+    .service h3 {
+        color: #5D4037; /* Темно-коричневый */
+        margin-top: 0;
+    }
+    
+    /* Блок клиентов */
+    .clients {
+        padding: 50px 0;
+        background-color: #D7CCC8; /* Средне-коричневый */
+        text-align: center;
+    }
+    
+    .benefits {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .benefit {
+        background: #EFEBE9; /* Светло-коричневый */
+        padding: 20px;
+        border-radius: 10px;
+        width: 200px;
+        box-shadow: 0 5px 15px rgba(78, 52, 46, 0.3);
+        border: 2px solid #5D4037;
+    }
+    
+    .benefit img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #5D4037;
+    }
+    
+    /* Отзывы */
+    .reviews {
+        padding: 50px 0;
+        background-color: #EFEBE9; /* Светло-коричневый */
+    }
+    
+    .review {
+        background: #D7CCC8; /* Средне-коричневый */
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        box-shadow: 0 5px 15px rgba(78, 52, 46, 0.3);
+    }
+    
+    .review-photo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+        border: 2px solid #5D4037;
+    }
+    
+    .review-content {
+        flex: 1;
+    }
+    
+    .review:before {
+        content: """;
+        font-size: 60px;
+        color: #5D4037;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        line-height: 1;
+        opacity: 0.3;
+    }
+    
+    .review-author {
+        font-weight: bold;
+        text-align: right;
+        margin-top: 10px;
+        color: #5D4037;
+    }
+    
+    /* Акция */
+    .promo {
+        padding: 50px 0;
+        background-color: #5D4037; /* Темно-коричневый */
+        color: #EFEBE9;
+        text-align: center;
+    }
+    
+    .promo h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 0 #3E2723;
+    }
+    
+    /* Подвал */
+    footer {
+        background-color: #3E2723; /* Очень темно-коричневый */
+        color: #EFEBE9;
+        padding: 30px 0;
+        text-align: center;
+    }
+    
+    .contacts {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    
+    .funny-line {
+        font-style: italic;
+        color: #BCAAA4; /* Светло-серо-коричневый */
+    }
+    
+    /* Анимации */
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    .pulse {
+        animation: pulse 1.5s infinite;
+    }
+</style>
 </head>
 <body>
     <!-- Шапка -->
@@ -190,7 +221,7 @@
             <h2 style="text-align: center; margin-bottom: 40px;">Наши услуги</h2>
             
             <div class="service">
-                <img src="https://via.placeholder.com/150?text=Бурение+под+ключ" alt="Бурение под ключ">
+                <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_67c9400f2cc24523077c6a6d_67c940b31354a6785717e092/scale_1200" alt="Бурение под ключ">
                 <div>
                     <h3>Бурение под ключ</h3>
                     <p>Качественно и глубоко пробурим любую скважину. Гарантируем надежное прохождение даже самых твердых пород! Наши специалисты работают аккуратно, но настойчиво, добиваясь идеального результата.</p>
@@ -198,7 +229,7 @@
             </div>
             
             <div class="service">
-                <img src="https://via.placeholder.com/150?text=Бурение+глины" alt="Бурение глины">
+                <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_67adb54ae51fcf55b1f16900_67adb68744caa6231c5a273d/scale_1200" alt="Бурение глины">
                 <div>
                     <h3>Бурение глины</h3>
                     <p>Специализируемся на сложных грунтах. Глина – наш конёк! Наши бурые мастера знают толк в вязких материалах. Работаем без спешки, с пониманием особенностей материала.</p>
@@ -206,7 +237,7 @@
             </div>
             
             <div class="service">
-                <img src="https://via.placeholder.com/150?text=Глубокое+бурение" alt="Глубокое бурение">
+                <img src="https://i.ytimg.com/vi/vv-cLk664jI/maxresdefault.jpg" alt="Глубокое бурение">
                 <div>
                     <h3>Глубокое бурение</h3>
                     <p>Заходим на такие глубины, что вам и не снилось. Обещаем – вы почувствуете каждую пройденную скважину! Используем только профессиональное оборудование для максимального проникновения.</p>
@@ -223,25 +254,25 @@
             
             <div class="benefits">
                 <div class="benefit">
-                    <img src="https://via.placeholder.com/80?text=Жена" alt="Жена">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Жена">
                     <h3>Жена</h3>
                     <p>Пробурим со скидкой!</p>
                 </div>
                 
                 <div class="benefit">
-                    <img src="https://via.placeholder.com/80?text=Дочь" alt="Дочь">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Дочь">
                     <h3>Дочь</h3>
                     <p>Аккуратно, без лишних вибраций.</p>
                 </div>
                 
                 <div class="benefit">
-                    <img src="https://via.placeholder.com/80?text=Подруга" alt="Подруга">
+                    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Подруга">
                     <h3>Подруга</h3>
                     <p>Срочный выезд бурильщика!</p>
                 </div>
                 
                 <div class="benefit">
-                    <img src="https://via.placeholder.com/80?text=Соседка" alt="Соседка">
+                    <img src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Соседка">
                     <h3>Соседка</h3>
                     <p>Скважина в рассрочку.</p>
                 </div>
@@ -257,18 +288,27 @@
             <h2 style="text-align: center; margin-bottom: 40px;">Отзывы наших клиентов</h2>
             
             <div class="review">
-                <p>Бурили мне скважину... Осталась довольна! Мастер был внимательный, работал не торопясь, но очень качественно. Теперь рекомендую всем подругам!</p>
-                <p class="review-author">Марина, 28 лет</p>
+                <img class="review-photo" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Марина">
+                <div class="review-content">
+                    <p>Бурили мне скважину... Осталась довольна! Мастер был внимательный, работал не торопясь, но очень качественно. Теперь рекомендую всем подругам!</p>
+                    <p class="review-author">Марина, 28 лет</p>
+                </div>
             </div>
             
             <div class="review">
-                <p>Сначала сомневался, но мастер углубился так, что я даже не ожидал! Работали до самого конца, пока не добились идеального результата. Скважина получилась просто замечательная!</p>
-                <p class="review-author">Сергей, 35 лет</p>
+                <img class="review-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Сергей">
+                <div class="review-content">
+                    <p>Сначала сомневался, но мастер углубился так, что я даже не ожидал! Работали до самого конца, пока не добились идеального результата. Скважина получилась просто замечательная!</p>
+                    <p class="review-author">Сергей, 35 лет</p>
+                </div>
             </div>
             
             <div class="review">
-                <p>Вызвала бурильщиков в первый раз и не пожалела! Очень профессиональный подход, учли все мои пожелания. Бурили долго, но я получила именно то, что хотела. Спасибо!</p>
-                <p class="review-author">Анна, 31 год</p>
+                <img class="review-photo" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Анна">
+                <div class="review-content">
+                    <p>Вызвала бурильщиков в первый раз и не пожалела! Очень профессиональный подход, учли все мои пожелания. Бурили долго, но я получила именно то, что хотела. Спасибо!</p>
+                    <p class="review-author">Анна, 31 год</p>
+                </div>
             </div>
         </div>
     </section>
