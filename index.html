@@ -52,29 +52,6 @@
         margin-top: 10px;
     }
     
-    /* Основное меню */
-    .main-menu {
-        background-color: #3E2723;
-        padding: 15px 0;
-    }
-    
-    .main-menu .container {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .main-menu a {
-        color: white;
-        text-decoration: none;
-        padding: 0 20px;
-        font-size: 1.1em;
-        text-transform: uppercase;
-    }
-    
-    .main-menu a:hover {
-        color: #D7CCC8;
-    }
-    
     /* Блок услуг */
     .services {
         padding: 50px 0;
@@ -228,336 +205,169 @@
         animation: pulse 1.5s infinite;
     }
     
-    /* Индикатор загрузки */
-    #loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #FFF8E1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-    }
-    
-    .loader-spinner {
-        width: 50px;
-        height: 50px;
-        border: 5px solid #D7CCC8;
-        border-top: 5px solid #5D4037;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    
-    /* Скрытие контента до загрузки */
-    .content {
-        display: none;
-    }
-
-    /* Мобильное меню */
-    .mobile-menu-btn {
-        display: none;
-        background-color: #5D4037;
-        color: white;
-        padding: 15px;
-        text-align: center;
-        cursor: pointer;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    .mobile-menu {
-        display: none;
-        background-color: #3E2723;
-        padding: 10px 0;
-    }
-
-    .mobile-menu a {
-        display: block;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        text-align: center;
-    }
-
-    .mobile-menu a:hover {
-        background-color: #5D4037;
-    }
-
-    /* Кнопка "Наверх" */
-    .back-to-top {
+    /* Стили для кнопки WhatsApp */
+    .whatsapp-button {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        background-color: #5D4037;
-        color: white;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+        z-index: 100;
         display: flex;
-        justify-content: center;
         align-items: center;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background-color: #25D366;
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         transition: all 0.3s ease;
-        z-index: 999;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        animation: pulse 1.5s infinite;
     }
-
-    .back-to-top:hover {
-        background-color: #3E2723;
+    
+    .whatsapp-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.4);
     }
-
-    .back-to-top.visible {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Мобильная версия */
-    @media (max-width: 768px) {
-        .service {
-            flex-direction: column;
-        }
-
-        .service img {
-            width: 100%;
-            height: auto;
-            margin-right: 0;
-            margin-bottom: 20px;
-        }
-
-        /* Мобильное меню */
-        .main-menu {
-            display: none;
-        }
-
-        .mobile-menu-btn {
-            display: block;
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        /* Кнопка "Наверх" для мобильных */
-        .back-to-top {
-            width: 40px;
-            height: 40px;
-            bottom: 20px;
-            right: 20px;
-        }
+    
+    .whatsapp-button svg {
+        width: 30px;
+        height: 30px;
     }
 </style>
 </head>
 <body>
-    <!-- Индикатор загрузки -->
-    <div id="loader">
-        <div class="loader-spinner"></div>
-    </div>
-    
-    <!-- Основной контент -->
-    <div class="content">
-        <!-- Основное меню (для десктопа) -->
-        <nav class="main-menu">
-            <div class="container">
-                <a href="#">Главная</a>
-                <a href="#services">Услуги</a>
-                <a href="#clients">Клиенты</a>
-                <a href="#reviews">Отзывы</a>
-                <a href="#contacts">Контакты</a>
-            </div>
-        </nav>
-        
-        <!-- Мобильное меню (скрытое по умолчанию) -->
-        <div class="mobile-menu-btn" id="mobileMenuBtn">Меню</div>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#">Главная</a>
-            <a href="#services">Услуги</a>
-            <a href="#clients">Клиенты</a>
-            <a href="#reviews">Отзывы</a>
-            <a href="#contacts">Контакты</a>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <h1>БУРИМ ВСЁ</h1>
+            <p class="tagline">Профессиональное бурение любых скважин</p>
         </div>
-        
-        <!-- Шапка -->
-        <header>
-            <div class="container">
-                <h1>БУРИМ ВСЁ</h1>
-                <p class="tagline">Профессиональное бурение любых скважин</p>
-            </div>
-        </header>
-        
-        <!-- Услуги -->
-        <section class="services" id="services">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 40px;">Наши услуги</h2>
-                
-                <div class="service">
-                    <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_67c9400f2cc24523077c6a6d_67c940b31354a6785717e092/scale_1200" alt="Бурение под ключ">
-                    <div>
-                        <h3>Бурение под ключ</h3>
-                        <p>Качественно и глубоко пробурим любую скважину. Гарантируем надежное прохождение даже самых твердых пород! Наши специалисты работают аккуратно, но настойчиво, добиваясь идеального результата.</p>
-                    </div>
-                </div>
-                
-                <div class="service">
-                    <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_67adb54ae51fcf55b1f16900_67adb68744caa6231c5a273d/scale_1200" alt="Бурение глины">
-                    <div>
-                        <h3>Бурение глины</h3>
-                        <p>Специализируемся на сложных грунтах. Глина – наш конёк! Наши бурые мастера знают толк в вязких материалах. Работаем без спешки, с пониманием особенностей материала.</p>
-                    </div>
-                </div>
-                
-                <div class="service">
-                    <img src="https://i.ytimg.com/vi/vv-cLk664jI/maxresdefault.jpg" alt="Глубокое бурение">
-                    <div>
-                        <h3>Глубокое бурение</h3>
-                        <p>Заходим на такие глубины, что вам и не снилось. Обещаем – вы почувствуете каждую пройденную скважину! Используем только профессиональное оборудование для максимального проникновения.</p>
-                    </div>
+    </header>
+    
+    <!-- Услуги -->
+    <section class="services">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Наши услуги</h2>
+            
+            <div class="service">
+                <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_67c9400f2cc24523077c6a6d_67c940b31354a6785717e092/scale_1200" alt="Бурение под ключ">
+                <div>
+                    <h3>Бурение под ключ</h3>
+                    <p>Качественно и глубоко пробурим любую скважину. Гарантируем надежное прохождение даже самых твердых пород! Наши специалисты работают аккуратно, но настойчиво, добиваясь идеального результата.</p>
                 </div>
             </div>
-        </section>
-        
-        <!-- Клиенты -->
-        <section class="clients" id="clients">
-            <div class="container">
-                <h2>Наши клиенты</h2>
-                <p>Мы работаем с частными лицами и компаниями. Особые условия для женщин:</p>
-                
-                <div class="benefits">
-                    <div class="benefit">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Жена">
-                        <h3>Жена</h3>
-                        <p>Пробурим со скидкой!</p>
-                    </div>
-                    
-                    <div class="benefit">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Дочь">
-                        <h3>Дочь</h3>
-                        <p>Аккуратно, без лишних вибраций.</p>
-                    </div>
-                    
-                    <div class="benefit">
-                        <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Подруга">
-                        <h3>Подруга</h3>
-                        <p>Срочный выезд бурильщика!</p>
-                    </div>
-                    
-                    <div class="benefit">
-                        <img src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Соседка">
-                        <h3>Соседка</h3>
-                        <p>Скважина в рассрочку.</p>
-                    </div>
-                </div>
-                
-                <p class="funny-line" style="margin-top: 30px;">"Забурим любую – главное, чтобы не отказалась от бурения!"</p>
-            </div>
-        </section>
-        
-        <!-- Отзывы -->
-        <section class="reviews" id="reviews">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 40px;">Отзывы наших клиентов</h2>
-                
-                <div class="review">
-                    <img class="review-photo" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Марина">
-                    <div class="review-content">
-                        <p>Бурили мне скважину... Осталась довольна! Мастер был внимательный, работал не торопясь, но очень качественно. Теперь рекомендую всем подругам!</p>
-                        <p class="review-author">Марина, 28 лет</p>
-                    </div>
-                </div>
-                
-                <div class="review">
-                    <img class="review-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Сергей">
-                    <div class="review-content">
-                        <p>Сначала сомневался, но мастер углубился так, что я даже не ожидал! Работали до самого конца, пока не добились идеального результата. Скважина получилась просто замечательная!</p>
-                        <p class="review-author">Сергей, 35 лет</p>
-                    </div>
-                </div>
-                
-                <div class="review">
-                    <img class="review-photo" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Анна">
-                    <div class="review-content">
-                        <p>Вызвала бурильщиков в первый раз и не пожалела! Очень профессиональный подход, учли все мои пожелания. Бурили долго, но я получила именно то, что хотела. Спасибо!</p>
-                        <p class="review-author">Анна, 31 год</p>
-                    </div>
+            
+            <div class="service">
+                <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_67adb54ae51fcf55b1f16900_67adb68744caa6231c5a273d/scale_1200" alt="Бурение глины">
+                <div>
+                    <h3>Бурение глины</h3>
+                    <p>Специализируемся на сложных грунтах. Глина – наш конёк! Наши бурые мастера знают толк в вязких материалах. Работаем без спешки, с пониманием особенностей материала.</p>
                 </div>
             </div>
-        </section>
-        
-        <!-- Акция -->
-        <section class="promo pulse">
-            <div class="container">
-                <h2>Акция!</h2>
-                <p style="font-size: 1.5em; margin-bottom: 20px;">При заказе бурения второй скважины – третья <strong>бесплатно</strong>!</p>
-                <p style="font-size: 1.2em;">"Мы не просто бурим – мы входим в вашу жизнь!"</p>
-            </div>
-        </section>
-        
-        <!-- Подвал -->
-        <footer id="contacts">
-            <div class="container">
-                <div class="contacts">
-                    <p>📞 Звоните: <strong>8-800-БУР-ЕНИЕ</strong></p>
-                    <p>🌐 Сайт: <strong>burim-vsyo.ru</strong></p>
+            
+            <div class="service">
+                <img src="https://i.ytimg.com/vi/vv-cLk664jI/maxresdefault.jpg" alt="Глубокое бурение">
+                <div>
+                    <h3>Глубокое бурение</h3>
+                    <p>Заходим на такие глубины, что вам и не снилось. Обещаем – вы почувствуете каждую пройденную скважину! Используем только профессиональное оборудование для максимального проникновения.</p>
                 </div>
-                <p class="funny-line">"Если ваша скважина еще не пробурена – значит, вы просто не позвонили нам!"</p>
             </div>
-        </footer>
+        </div>
+    </section>
+    
+    <!-- Клиенты -->
+    <section class="clients">
+        <div class="container">
+            <h2>Наши клиенты</h2>
+            <p>Мы работаем с частными лицами и компаниями. Особые условия для женщин:</p>
+            
+            <div class="benefits">
+                <div class="benefit">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Жена">
+                    <h3>Жена</h3>
+                    <p>Пробурим со скидкой!</p>
+                </div>
+                
+                <div class="benefit">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Дочь">
+                    <h3>Дочь</h3>
+                    <p>Аккуратно, без лишних вибраций.</p>
+                </div>
+                
+                <div class="benefit">
+                    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Подруга">
+                    <h3>Подруга</h3>
+                    <p>Срочный выезд бурильщика!</p>
+                </div>
+                
+                <div class="benefit">
+                    <img src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Соседка">
+                    <h3>Соседка</h3>
+                    <p>Скважина в рассрочку.</p>
+                </div>
+            </div>
+            
+            <p class="funny-line" style="margin-top: 30px;">"Забурим любую – главное, чтобы не отказалась от бурения!"</p>
+        </div>
+    </section>
+    
+    <!-- Отзывы -->
+    <section class="reviews">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Отзывы наших клиентов</h2>
+            
+            <div class="review">
+                <img class="review-photo" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Марина">
+                <div class="review-content">
+                    <p>Бурили мне скважину... Осталась довольна! Мастер был внимательный, работал не торопясь, но очень качественно. Теперь рекомендую всем подругам!</p>
+                    <p class="review-author">Марина, 28 лет</p>
+                </div>
+            </div>
+            
+            <div class="review">
+                <img class="review-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Сергей">
+                <div class="review-content">
+                    <p>Сначала сомневался, но мастер углубился так, что я даже не ожидал! Работали до самого конца, пока не добились идеального результата. Скважина получилась просто замечательная!</p>
+                    <p class="review-author">Сергей, 35 лет</p>
+                </div>
+            </div>
+            
+            <div class="review">
+                <img class="review-photo" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Анна">
+                <div class="review-content">
+                    <p>Вызвала бурильщиков в первый раз и не пожалела! Очень профессиональный подход, учли все мои пожелания. Бурили долго, но я получила именно то, что хотела. Спасибо!</p>
+                    <p class="review-author">Анна, 31 год</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Акция -->
+    <section class="promo pulse">
+        <div class="container">
+            <h2>Акция!</h2>
+            <p style="font-size: 1.5em; margin-bottom: 20px;">При заказе бурения второй скважины – третья <strong>бесплатно</strong>!</p>
+            <p style="font-size: 1.2em;">"Мы не просто бурим – мы входим в вашу жизнь!"</p>
+        </div>
+    </section>
+    
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="contacts">
+                <p>📞 Звоните: <strong>8-800-БУР-ЕНИЕ</strong></p>
+                <p>🌐 Сайт: <strong>burim-vsyo.ru</strong></p>
+            </div>
+            <p class="funny-line">"Если ваша скважина еще не пробурена – значит, вы просто не позвонили нам!"</p>
+        </div>
+    </footer>
 
-        <!-- Кнопка "Наверх" -->
-        <div class="back-to-top" id="backToTop">↑</div>
-    </div>
-
-    <script>
-        // Функция для скрытия индикатора загрузки и отображения контента
-        function hideLoader() {
-            document.getElementById('loader').style.display = 'none';
-            document.querySelector('.content').style.display = 'block';
-        }
-
-        // Ожидание полной загрузки страницы
-        if (document.readyState === 'complete') {
-            // Если страница уже загружена
-            hideLoader();
-        } else {
-            // Если страница еще загружается
-            window.addEventListener('load', function() {
-                // Искусственная задержка для демонстрации индикатора (можно убрать)
-                setTimeout(hideLoader, 1000);
-            });
-        }
-
-        // Мобильное меню
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            var menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
-        });
-
-        // Кнопка "Наверх"
-        var backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+    <!-- Кнопка WhatsApp -->
+    <a href="https://wa.me/79001234567" class="whatsapp-button" title="Написать в WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
 </body>
 </html>
