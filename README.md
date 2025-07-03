@@ -1,1 +1,1 @@
-https://alex-klim93.github.io/ClayDrilling/
+https://alex-klim93.github.io/Svadiba/
