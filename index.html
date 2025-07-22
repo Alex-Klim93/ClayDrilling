@@ -3,555 +3,666 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на свадьбу Анны и Ивана</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>Производственный тест для собеседования</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap');
-        
-        :root {
-            --primary-color: #b76e79;
-            --secondary-color: #8b4513;
-            --accent-color: #d4af37;
-            --text-color: #5a3e36;
-            --light-bg: #fff9f9;
-            --white: #ffffff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            overflow-x: hidden;
-            background-image: url('https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-        }
-        
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 245, 245, 0.9);
-            z-index: 0;
-        }
-        
-        .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
-            position: relative;
-            z-index: 1;
+            background-color: #f5f5f5;
         }
-        
-        .invitation-card {
-            background-color: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .test-section {
+            background-color: white;
+            padding: 20px;
             margin-bottom: 30px;
-            border: 1px solid #f0e6e6;
-            animation: fadeIn 1.5s ease-out;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
-        .header-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .content-section {
-            padding: 40px;
-        }
-        
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
+        .question {
             margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
         }
-        
-        h1 {
-            font-size: 2.8rem;
-            text-align: center;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        .options {
+            margin-left: 20px;
         }
-        
-        h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-        }
-        
-        .names {
-            font-size: 3.2rem;
-            font-weight: 700;
-            color: var(--secondary-color);
-            margin: 30px 0;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            animation: pulse 2s infinite;
-        }
-        
-        p {
-            margin: 15px 0;
-            font-size: 1.1rem;
-        }
-        
-        .highlight-box {
-            background-color: rgba(183, 110, 121, 0.1);
-            border-left: 4px solid var(--primary-color);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .timeline {
-            position: relative;
-            margin: 40px 0;
-            padding-left: 30px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 7px;
-            height: 100%;
-            width: 2px;
-            background: var(--accent-color);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 30px;
-            padding-left: 30px;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: -3px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            border: 3px solid var(--accent-color);
-        }
-        
-        .timeline-time {
+        .correct {
+            color: green;
             font-weight: bold;
-            color: var(--primary-color);
+        }
+        button {
             display: block;
-            margin-bottom: 5px;
-        }
-        
-        .timeline-title {
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-        
-        .dress-code {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .dress-code-item {
-            flex: 1;
-            min-width: 200px;
-            background: var(--white);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border: 1px solid #f0e6e6;
-            transition: transform 0.3s ease;
-        }
-        
-        .dress-code-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .dress-code-title {
-            font-weight: 500;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .dress-code-title i {
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-        
-        .color-palette {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .color-box {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .gallery-item {
-            height: 200px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .btn-whatsapp {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
             margin: 30px auto;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
             border: none;
+            border-radius: 5px;
+            font-size: 16px;
             cursor: pointer;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            max-width: 300px;
-            animation: bounce 2s infinite;
+            transition: background-color 0.3s;
         }
-        
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(37, 211, 102, 0.4);
+        button:hover {
+            background-color: #2980b9;
         }
-        
-        .btn-whatsapp i {
-            margin-right: 10px;
-            font-size: 1.3rem;
+        #result {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e8f4fc;
+            border-radius: 8px;
+            display: none;
         }
-        
-        .floating-hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .section-title {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 40px;
+        }
+        #userInfo {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        #userInfo input, #userInfo select {
             width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
-        
-        .heart {
-            position: absolute;
-            opacity: 0;
-            animation: float 6s ease-in infinite;
-            color: var(--primary-color);
+        #testContainer {
+            display: block;
         }
-        
-        footer {
+        #finalScreen {
+            display: none;
             text-align: center;
             padding: 30px;
-            color: var(--text-color);
-            font-size: 0.9rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .hidden {
+            display: none;
         }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-500px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .content-section {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .names {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .dress-code {
-                flex-direction: column;
-            }
+        #whatsappInfo {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="floating-hearts" id="hearts"></div>
-    
-    <div class="container">
-        <div class="invitation-card animate__animated animate__fadeIn">
-            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Свадебное фото" class="header-image">
-            
-            <div class="content-section">
-                <h1>Приглашение на свадьбу</h1>
-                <p class="highlight-box">Дорогие друзья и родные! Мы с радостью хотим разделить с вами наш особенный день и приглашаем вас на торжество по случаю нашего бракосочетания.</p>
-                
-                <div class="names">
-                    Анна & Иван
-                </div>
-                
-                <div class="highlight-box">
-                    <p><i class="fas fa-calendar-alt"></i> <strong>Дата:</strong> 15 августа 2024 года</p>
-                    <p><i class="fas fa-clock"></i> <strong>Время сбора гостей:</strong> 15:30</p>
-                    <p><i class="fas fa-map-marker-alt"></i> <strong>Место:</strong> Ресторан "Белая лилия", г. Москва, ул. Цветочная, 18</p>
-                </div>
-                
-                <h2>Программа торжества</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-time">15:30</span>
-                        <h3 class="timeline-title">Сбор гостей</h3>
-                        <p>Фуршет, фотосессия, знакомство с фотозоной</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">16:30</span>
-                        <h3 class="timeline-title">Церемония бракосочетания</h3>
-                        <p>Торжественное заключение брака в кругу самых близких</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">17:30</span>
-                        <h3 class="timeline-title">Банкет</h3>
-                        <p>Торжественный ужин, поздравления, конкурсы</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">20:00</span>
-                        <h3 class="timeline-title">Танцы</h3>
-                        <p>Первый танец молодых, танцевальная программа</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-time">23:00</span>
-                        <h3 class="timeline-title">Завершение вечера</h3>
-                        <p>Финальные поздравления и проводы молодых</p>
+    <h1>Тест для собеседования в производственный цех</h1>
+    <h2>Должность: Оператор станков с ЧПУ / Токарь / Слесарь</h2>
+
+    <div id="userInfo">
+        <h3>Пожалуйста, заполните ваши данные</h3>
+        <input type="text" id="userName" placeholder="ФИО" required>
+        <input type="tel" id="userPhone" placeholder="Номер телефона (для связи)" required>
+        <select id="userPosition" required>
+            <option value="">Выберите должность</option>
+            <option value="Оператор станков с ЧПУ">Оператор станков с ЧПУ</option>
+            <option value="Токарь">Токарь</option>
+            <option value="Слесарь">Слесарь</option>
+        </select>
+        <button type="button" id="startTestBtn">Начать тест</button>
+    </div>
+
+    <div id="testContainer">
+        <form id="testForm">
+            <!-- Раздел 1: Ручной инструмент -->
+            <div class="section-title">1. Ручной инструмент</div>
+            <div class="test-section">
+                <div class="question">
+                    <p>1. Какой инструмент используется для нарезания наружной резьбы вручную?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="a"> а) Метчик</label><br>
+                        <label><input type="radio" name="q1" value="b"> б) Плашка</label><br>
+                        <label><input type="radio" name="q1" value="c"> в) Зенкер</label><br>
+                        <label><input type="radio" name="q1" value="d"> г) Развертка</label>
                     </div>
                 </div>
                 
-                <h2>Дресс-код</h2>
-                <p>Мы будем рады, если вы поддержите цветовую гамму нашего торжества в своих нарядах.</p>
-                
-                <div class="dress-code">
-                    <div class="dress-code-item">
-                        <div class="dress-code-title"><i class="fas fa-female"></i> Для женщин</div>
-                        <p>Вечерние платья в пастельных тонах или нежных цветочных принтах. Допускаются коктейльные платья средней длины.</p>
-                        <div class="color-palette">
-                            <div class="color-box" style="background: #f5e1e3;"></div>
-                            <div class="color-box" style="background: #e8c9d0;"></div>
-                            <div class="color-box" style="background: #d4afb9;"></div>
-                            <div class="color-box" style="background: #f8f3e6;"></div>
-                        </div>
-                    </div>
-                    <div class="dress-code-item">
-                        <div class="dress-code-title"><i class="fas fa-male"></i> Для мужчин</div>
-                        <p>Костюмы светлых тонов или классические темные с акцентами в нашей цветовой гамме. Галстуки или бабочки приветствуются.</p>
-                        <div class="color-palette">
-                            <div class="color-box" style="background: #e8e3d4;"></div>
-                            <div class="color-box" style="background: #d9d0b7;"></div>
-                            <div class="color-box" style="background: #3a2e26;"></div>
-                            <div class="color-box" style="background: #5a3e36;"></div>
-                        </div>
+                <div class="question">
+                    <p>2. Как называется инструмент для выколачивания штифтов и валов?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="a"> а) Киянка</label><br>
+                        <label><input type="radio" name="q2" value="b"> б) Молоток-гвоздодер</label><br>
+                        <label><input type="radio" name="q2" value="c"> в) Бородок</label><br>
+                        <label><input type="radio" name="q2" value="d"> г) Зубило</label>
                     </div>
                 </div>
-                
-                <h2>Наша история</h2>
-                <p>Мы познакомились 5 лет назад в университете и с тех пор не расставались. Это приглашение - начало новой главы в нашей жизни, и мы хотим, чтобы вы стали ее частью.</p>
-                
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Фото 1">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Фото 2">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Фото 3">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Фото 4">
+
+                <div class="question">
+                    <p>3. Какой инструмент применяется для гибки листового металла?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="a"> а) Тиски</label><br>
+                        <label><input type="radio" name="q3" value="b"> б) Круглогубцы</label><br>
+                        <label><input type="radio" name="q3" value="c"> в) Киянка</label><br>
+                        <label><input type="radio" name="q3" value="d"> г) Оправка</label>
                     </div>
                 </div>
-                
-                <button class="btn-whatsapp" id="whatsappBtn">
-                    <i class="fab fa-whatsapp"></i> Подтвердить присутствие
-                </button>
-                
-                <p style="text-align: center; margin-top: 20px;">Ждем вас на нашем празднике любви!</p>
+
+                <div class="question">
+                    <p>4. Как называется инструмент для удаления заусенцев?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="a"> а) Шабер</label><br>
+                        <label><input type="radio" name="q4" value="b"> б) Напильник</label><br>
+                        <label><input type="radio" name="q4" value="c"> в) Надфиль</label><br>
+                        <label><input type="radio" name="q4" value="d"> г) Рашпиль</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Какой инструмент используют для разметки металла?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="a"> а) Кернер</label><br>
+                        <label><input type="radio" name="q5" value="b"> б) Чертилка</label><br>
+                        <label><input type="radio" name="q5" value="c"> в) Штангенциркуль</label><br>
+                        <label><input type="radio" name="q5" value="d"> г) Угольник</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Какой инструмент нужен для выравнивания кромок детали?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="a"> а) Рифлёный молоток</label><br>
+                        <label><input type="radio" name="q6" value="b"> б) Киянка</label><br>
+                        <label><input type="radio" name="q6" value="c"> в) Ручной рубанок</label><br>
+                        <label><input type="radio" name="q6" value="d"> г) Шабровка</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Как называется инструмент для пробивания отверстий в металле?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="a"> а) Пробойник</label><br>
+                        <label><input type="radio" name="q7" value="b"> б) Зенкер</label><br>
+                        <label><input type="radio" name="q7" value="c"> в) Сверло</label><br>
+                        <label><input type="radio" name="q7" value="d"> г) Долото</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Какой инструмент используют для натягивания пружин?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="a"> а) Клещи</label><br>
+                        <label><input type="radio" name="q8" value="b"> б) Плоскогубцы</label><br>
+                        <label><input type="radio" name="q8" value="c"> в) Специальные захваты</label><br>
+                        <label><input type="radio" name="q8" value="d"> г) Разводной ключ</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Как называется инструмент для выравнивания валов?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="a"> а) Правильная плита</label><br>
+                        <label><input type="radio" name="q9" value="b"> б) Рихтовальные клещи</label><br>
+                        <label><input type="radio" name="q9" value="c"> в) Притир</label><br>
+                        <label><input type="radio" name="q9" value="d"> г) Шабровка</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Какой инструмент применяют для снятия фасок?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="a"> а) Зенковка</label><br>
+                        <label><input type="radio" name="q10" value="b"> б) Развертка</label><br>
+                        <label><input type="radio" name="q10" value="c"> в) Шабер</label><br>
+                        <label><input type="radio" name="q10" value="d"> г) Напильник</label>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <footer>
-            <p>С любовью, Анна и Иван</p>
-            <p>По всем вопросам: +7 (999) 999-99-99</p>
-        </footer>
+
+            <!-- Раздел 2: Измерительный инструмент -->
+            <div class="section-title">2. Измерительный инструмент</div>
+            <div class="test-section">
+                <div class="question">
+                    <p>1. Какой инструмент измеряет глубину паза?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q11" value="a"> а) Штангенглубиномер</label><br>
+                        <label><input type="radio" name="q11" value="b"> б) Микрометр</label><br>
+                        <label><input type="radio" name="q11" value="c"> в) Нутромер</label><br>
+                        <label><input type="radio" name="q11" value="d"> г) Индикатор</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>2. Какой прибор измеряет отклонение от плоскостности?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q12" value="a"> а) Щуп</label><br>
+                        <label><input type="radio" name="q12" value="b"> б) Линейка-поверочная</label><br>
+                        <label><input type="radio" name="q12" value="c"> в) Уровень</label><br>
+                        <label><input type="radio" name="q12" value="d"> г) Индикатор</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Какой инструмент измеряет шаг резьбы?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q13" value="a"> а) Резьбомер</label><br>
+                        <label><input type="radio" name="q13" value="b"> б) Штангенциркуль</label><br>
+                        <label><input type="radio" name="q13" value="c"> в) Микрометр</label><br>
+                        <label><input type="radio" name="q13" value="d"> г) Угломер</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Как называется прибор для измерения углов?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q14" value="a"> а) Угольник</label><br>
+                        <label><input type="radio" name="q14" value="b"> б) Транспортир</label><br>
+                        <label><input type="radio" name="q14" value="c"> в) Угломер</label><br>
+                        <label><input type="radio" name="q14" value="d"> г) Нивелир</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Какой инструмент измеряет биение вала?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q15" value="a"> а) Индикатор часового типа</label><br>
+                        <label><input type="radio" name="q15" value="b"> б) Штангенциркуль</label><br>
+                        <label><input type="radio" name="q15" value="c"> в) Микрометр</label><br>
+                        <label><input type="radio" name="q15" value="d"> г) Нутромер</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Какой инструмент используют для проверки прямого угла?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q16" value="a"> а) Угольник</label><br>
+                        <label><input type="radio" name="q16" value="b"> б) Уровень</label><br>
+                        <label><input type="radio" name="q16" value="c"> в) Линейка</label><br>
+                        <label><input type="radio" name="q16" value="d"> г) Щуп</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Какой прибор измеряет зазор между деталями?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q17" value="a"> а) Щуп</label><br>
+                        <label><input type="radio" name="q17" value="b"> б) Микрометр</label><br>
+                        <label><input type="radio" name="q17" value="c"> в) Штангенциркуль</label><br>
+                        <label><input type="radio" name="q17" value="d"> г) Нутромер</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Какой инструмент измеряет наружный диаметр с высокой точностью?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q18" value="a"> а) Штангенциркуль</label><br>
+                        <label><input type="radio" name="q18" value="b"> б) Микрометр</label><br>
+                        <label><input type="radio" name="q18" value="c"> в) Нутромер</label><br>
+                        <label><input type="radio" name="q18" value="d"> г) Резьбомер</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Как называется прибор для проверки соосности?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q19" value="a"> а) Индикаторная стойка</label><br>
+                        <label><input type="radio" name="q19" value="b"> б) Уровень</label><br>
+                        <label><input type="radio" name="q19" value="c"> в) Теодолит</label><br>
+                        <label><input type="radio" name="q19" value="d"> г) Нивелир</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Какой инструмент измеряет шероховатость поверхности?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q20" value="a"> а) Профилометр</label><br>
+                        <label><input type="radio" name="q20" value="b"> б) Микрометр</label><br>
+                        <label><input type="radio" name="q20" value="c"> в) Щуп</label><br>
+                        <label><input type="radio" name="q20" value="d"> г) Индикатор</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Раздел 3: Режущий инструмент -->
+            <div class="section-title">3. Режущий инструмент</div>
+            <div class="test-section">
+                <div class="question">
+                    <p>1. Какой резец используется для чернового точения?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q21" value="a"> а) Проходной отогнутый</label><br>
+                        <label><input type="radio" name="q21" value="b"> б) Расточной</label><br>
+                        <label><input type="radio" name="q21" value="c"> в) Подрезной</label><br>
+                        <label><input type="radio" name="q21" value="d"> г) Резьбовой</label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>2. Какой угол у сверла по металлу стандартного типа?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q22" value="a"> а) 90°</label><br>
+                        <label><input type="radio" name="q22" value="b"> б) 118°</label><br>
+                        <label><input type="radio" name="q22" value="c"> в) 135°</label><br>
+                        <label><input type="radio" name="q22" value="d"> г) 60°</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Как называется режущая часть фрезы?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q23" value="a"> а) Хвостовик</label><br>
+                        <label><input type="radio" name="q23" value="b"> б) Зуб</label><br>
+                        <label><input type="radio" name="q23" value="c"> в) Лезвие</label><br>
+                        <label><input type="radio" name="q23" value="d"> г) Кромка</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Какой инструмент используют для чистовой обработки отверстий?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q24" value="a"> а) Зенкер</label><br>
+                        <label><input type="radio" name="q24" value="b"> б) Развертка</label><br>
+                        <label><input type="radio" name="q24" value="c"> в) Метчик</label><br>
+                        <label><input type="radio" name="q24" value="d"> г) Сверло</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Какой материал чаще всего используют для изготовления твердосплавных пластин?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q25" value="a"> а) Быстрорежущая сталь</label><br>
+                        <label><input type="radio" name="q25" value="b"> б) ВК8</label><br>
+                        <label><input type="radio" name="q25" value="c"> в) P6M5</label><br>
+                        <label><input type="radio" name="q25" value="d"> г) У8А</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Как называется угол между передней поверхностью резца и плоскостью резания?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q26" value="a"> а) Главный угол</label><br>
+                        <label><input type="radio" name="q26" value="b"> б) Передний угол</label><br>
+                        <label><input type="radio" name="q26" value="c"> в) Угол заострения</label><br>
+                        <label><input type="radio" name="q26" value="d"> г) Угол наклона</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Какой инструмент используют для нарезания внутренней резьбы?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q27" value="a"> а) Плашка</label><br>
+                        <label><input type="radio" name="q27" value="b"> б) Метчик</label><br>
+                        <label><input type="radio" name="q27" value="c"> в) Зенкер</label><br>
+                        <label><input type="radio" name="q27" value="d"> г) Развертка</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Как называется процесс заточки резца для восстановления режущих кромок?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q28" value="a"> а) Правка</label><br>
+                        <label><input type="radio" name="q28" value="b"> б) Закалка</label><br>
+                        <label><input type="radio" name="q28" value="c"> в) Переточка</label><br>
+                        <label><input type="radio" name="q28" value="d"> г) Отпуск</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Какой параметр определяет стойкость инструмента?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q29" value="a"> а) Твердость</label><br>
+                        <label><input type="radio" name="q29" value="b"> б) Время работы до затупления</label><br>
+                        <label><input type="radio" name="q29" value="c"> в) Угол заточки</label><br>
+                        <label><input type="radio" name="q29" value="d"> г) Скорость резания</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Как называется инструмент для обработки торцов?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q30" value="a"> а) Проходной резец</label><br>
+                        <label><input type="radio" name="q30" value="b"> б) Подрезной резец</label><br>
+                        <label><input type="radio" name="q30" value="c"> в) Расточной резец</label><br>
+                        <label><input type="radio" name="q30" value="d"> г) Резьбовой резец</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопка отправки -->
+            <button type="button" id="submitBtn">Проверить результаты</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <div id="finalScreen">
+        <h2>Тест завершен!</h2>
+        <p id="finalMessage"></p>
+        <p>Результаты теста были отправлены руководителю.</p>
+    </div>
+
+    <div id="whatsappInfo" class="hidden">
+        <h3>Отправка результатов в WhatsApp</h3>
+        <p>Введите номер телефона руководителя (в международном формате, например: 79001234567)</p>
+        <input type="tel" id="managerPhone" placeholder="Номер телефона руководителя" required>
+        <button type="button" id="sendWhatsAppBtn">Отправить в WhatsApp</button>
     </div>
 
     <script>
-        // WhatsApp button functionality
-        document.getElementById('whatsappBtn').addEventListener('click', function() {
-            const phoneNumber = '79999999999'; // Замените на реальный номер
-            const message = 'Привет, Анна и Иван! Я буду на вашей свадьбе 15 августа!';
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        // Скрываем тест при загрузке
+        document.getElementById('testContainer').style.display = 'none';
+        document.getElementById('finalScreen').style.display = 'none';
+
+        // Обработчик начала теста
+        document.getElementById('startTestBtn').addEventListener('click', function() {
+            const userName = document.getElementById('userName').value;
+            const userPhone = document.getElementById('userPhone').value;
+            const userPosition = document.getElementById('userPosition').value;
+
+            if (!userName || !userPhone || !userPosition) {
+                alert('Пожалуйста, заполните все поля!');
+                return;
+            }
+
+            document.getElementById('userInfo').style.display = 'none';
+            document.getElementById('testContainer').style.display = 'block';
+        });
+
+        // Правильные ответы
+        const correctAnswers = {
+            q1: "b", q2: "c", q3: "b", q4: "b", q5: "b", q6: "a", q7: "a", q8: "c", q9: "a", q10: "a",
+            q11: "a", q12: "b", q13: "a", q14: "c", q15: "a", q16: "a", q17: "a", q18: "b", q19: "a", q20: "a",
+            q21: "a", q22: "b", q23: "b", q24: "b", q25: "b", q26: "b", q27: "b", q28: "c", q29: "b", q30: "b"
+        };
+
+        // Тексты вопросов и вариантов ответов
+        const questionTexts = {
+            q1: "1. Какой инструмент используется для нарезания наружной резьбы вручную?",
+            q2: "2. Как называется инструмент для выколачивания штифтов и валов?",
+            q3: "3. Какой инструмент применяется для гибки листового металла?",
+            q4: "4. Как называется инструмент для удаления заусенцев?",
+            q5: "5. Какой инструмент используют для разметки металла?",
+            q6: "6. Какой инструмент нужен для выравнивания кромок детали?",
+            q7: "7. Как называется инструмент для пробивания отверстий в металле?",
+            q8: "8. Какой инструмент используют для натягивания пружин?",
+            q9: "9. Как называется инструмент для выравнивания валов?",
+            q10: "10. Какой инструмент применяют для снятия фасок?",
+            q11: "1. Какой инструмент измеряет глубину паза?",
+            q12: "2. Какой прибор измеряет отклонение от плоскостности?",
+            q13: "3. Какой инструмент измеряет шаг резьбы?",
+            q14: "4. Как называется прибор для измерения углов?",
+            q15: "5. Какой инструмент измеряет биение вала?",
+            q16: "6. Какой инструмент используют для проверки прямого угла?",
+            q17: "7. Какой прибор измеряет зазор между деталями?",
+            q18: "8. Какой инструмент измеряет наружный диаметр с высокой точностью?",
+            q19: "9. Как называется прибор для проверки соосности?",
+            q20: "10. Какой инструмент измеряет шероховатость поверхности?",
+            q21: "1. Какой резец используется для чернового точения?",
+            q22: "2. Какой угол у сверла по металлу стандартного типа?",
+            q23: "3. Как называется режущая часть фрезы?",
+            q24: "4. Какой инструмент используют для чистовой обработки отверстий?",
+            q25: "5. Какой материал чаще всего используют для изготовления твердосплавных пластин?",
+            q26: "6. Как называется угол между передней поверхностью резца и плоскостью резания?",
+            q27: "7. Какой инструмент используют для нарезания внутренней резьбы?",
+            q28: "8. Как называется процесс заточки резца для восстановления режущих кромок?",
+            q29: "9. Какой параметр определяет стойкость инструмента?",
+            q30: "10. Как называется инструмент для обработки торцов?"
+        };
+
+        const optionTexts = {
+            q1: { a: "а) Метчик", b: "б) Плашка", c: "в) Зенкер", d: "г) Развертка" },
+            q2: { a: "а) Киянка", b: "б) Молоток-гвоздодер", c: "в) Бородок", d: "г) Зубило" },
+            q3: { a: "а) Тиски", b: "б) Круглогубцы", c: "в) Киянка", d: "г) Оправка" },
+            q4: { a: "а) Шабер", b: "б) Напильник", c: "в) Надфиль", d: "г) Рашпиль" },
+            q5: { a: "а) Кернер", b: "б) Чертилка", c: "в) Штангенциркуль", d: "г) Угольник" },
+            q6: { a: "а) Рифлёный молоток", b: "б) Киянка", c: "в) Ручной рубанок", d: "г) Шабровка" },
+            q7: { a: "а) Пробойник", b: "б) Зенкер", c: "в) Сверло", d: "г) Долото" },
+            q8: { a: "а) Клещи", b: "б) Плоскогубцы", c: "в) Специальные захваты", d: "г) Разводной ключ" },
+            q9: { a: "а) Правильная плита", b: "б) Рихтовальные клещи", c: "в) Притир", d: "г) Шабровка" },
+            q10: { a: "а) Зенковка", b: "б) Развертка", c: "в) Шабер", d: "г) Напильник" },
+            q11: { a: "а) Штангенглубиномер", b: "б) Микрометр", c: "в) Нутромер", d: "г) Индикатор" },
+            q12: { a: "а) Щуп", b: "б) Линейка-поверочная", c: "в) Уровень", d: "г) Индикатор" },
+            q13: { a: "а) Резьбомер", b: "б) Штангенциркуль", c: "в) Микрометр", d: "г) Угломер" },
+            q14: { a: "а) Угольник", b: "б) Транспортир", c: "в) Угломер", d: "г) Нивелир" },
+            q15: { a: "а) Индикатор часового типа", b: "б) Штангенциркуль", c: "в) Микрометр", d: "г) Нутромер" },
+            q16: { a: "а) Угольник", b: "б) Уровень", c: "в) Линейка", d: "г) Щуп" },
+            q17: { a: "а) Щуп", b: "б) Микрометр", c: "в) Штангенциркуль", d: "г) Нутромер" },
+            q18: { a: "а) Штангенциркуль", b: "б) Микрометр", c: "в) Нутромер", d: "г) Резьбомер" },
+            q19: { a: "а) Индикаторная стойка", b: "б) Уровень", c: "в) Теодолит", d: "г) Нивелир" },
+            q20: { a: "а) Профилометр", b: "б) Микрометр", c: "в) Щуп", d: "г) Индикатор" },
+            q21: { a: "а) Проходной отогнутый", b: "б) Расточной", c: "в) Подрезной", d: "г) Резьбовой" },
+            q22: { a: "а) 90°", b: "б) 118°", c: "в) 135°", d: "г) 60°" },
+            q23: { a: "а) Хвостовик", b: "б) Зуб", c: "в) Лезвие", d: "г) Кромка" },
+            q24: { a: "а) Зенкер", b: "б) Развертка", c: "в) Метчик", d: "г) Сверло" },
+            q25: { a: "а) Быстрорежущая сталь", b: "б) ВК8", c: "в) P6M5", d: "г) У8А" },
+            q26: { a: "а) Главный угол", b: "б) Передний угол", c: "в) Угол заострения", d: "г) Угол наклона" },
+            q27: { a: "а) Плашка", b: "б) Метчик", c: "в) Зенкер", d: "г) Развертка" },
+            q28: { a: "а) Правка", b: "б) Закалка", c: "в) Переточка", d: "г) Отпуск" },
+            q29: { a: "а) Твердость", b: "б) Время работы до затупления", c: "в) Угол заточки", d: "г) Скорость резания" },
+            q30: { a: "а) Проходной резец", b: "б) Подрезной резец", c: "в) Расточной резец", d: "г) Резьбовой резец" }
+        };
+
+        // Обработчик отправки теста
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const userName = document.getElementById('userName').value;
+            const userPhone = document.getElementById('userPhone').value;
+            const userPosition = document.getElementById('userPosition').value;
+
+            let score = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
+            const userAnswers = {};
+            
+            // Проверка ответов и сбор данных
+            for (let i = 1; i <= totalQuestions; i++) {
+                const questionName = "q" + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                
+                if (selectedOption) {
+                    userAnswers[questionName] = selectedOption.value;
+                    if (selectedOption.value === correctAnswers[questionName]) {
+                        score++;
+                    }
+                } else {
+                    userAnswers[questionName] = "Нет ответа";
+                }
+            }
+
+            // Вычисление результата
+            const percentage = Math.round((score / totalQuestions) * 100);
+            let message = `Вы ответили правильно на ${score} из ${totalQuestions} вопросов (${percentage}%). `;
+            
+            if (percentage >= 80) {
+                message += "Отличный результат! Вы хорошо подготовлены к работе.";
+            } else if (percentage >= 50) {
+                message += "Средний результат. Требуется дополнительное обучение.";
+            } else {
+                message += "Низкий результат. Необходима серьезная подготовка.";
+            }
+            
+            // Отображение результата
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').innerHTML = message;
+
+            // Подготовка данных для отправки
+            const testData = {
+                userName: userName,
+                userPhone: userPhone,
+                userPosition: userPosition,
+                score: score,
+                totalQuestions: totalQuestions,
+                percentage: percentage,
+                answers: userAnswers,
+                correctAnswers: correctAnswers,
+                questionTexts: questionTexts,
+                optionTexts: optionTexts,
+                timestamp: new Date().toISOString()
+            };
+
+            // Показываем форму для отправки в WhatsApp
+            document.getElementById('testContainer').style.display = 'none';
+            document.getElementById('whatsappInfo').classList.remove('hidden');
+            
+            // Сохраняем данные теста для отправки
+            window.testData = testData;
+        });
+
+        // Обработчик отправки в WhatsApp
+        document.getElementById('sendWhatsAppBtn').addEventListener('click', function() {
+            const managerPhone = document.getElementById('managerPhone').value;
+            if (!managerPhone) {
+                alert('Пожалуйста, введите номер телефона руководителя');
+                return;
+            }
+
+            const testData = window.testData;
+            
+            // Формируем сообщение для WhatsApp
+            let whatsappMessage = `*Результаты тестирования кандидата*\n\n`;
+            whatsappMessage += `*Кандидат:* ${testData.userName}\n`;
+            whatsappMessage += `*Телефон:* ${testData.userPhone}\n`;
+            whatsappMessage += `*Должность:* ${testData.userPosition}\n`;
+            whatsappMessage += `*Результат:* ${testData.score}/${testData.totalQuestions} (${testData.percentage}%)\n\n`;
+            whatsappMessage += `*Подробные ответы:*\n\n`;
+
+            // Добавляем ответы по каждому вопросу
+            for (let i = 1; i <= testData.totalQuestions; i++) {
+                const q = 'q' + i;
+                const questionText = testData.questionTexts[q];
+                const userAnswer = testData.answers[q];
+                const correctAnswer = testData.correctAnswers[q];
+                
+                whatsappMessage += `${questionText}\n`;
+                whatsappMessage += `- Ответ кандидата: ${testData.optionTexts[q][userAnswer] || 'Нет ответа'}\n`;
+                whatsappMessage += `- Правильный ответ: ${testData.optionTexts[q][correctAnswer]}\n`;
+                
+                if (userAnswer === correctAnswer) {
+                    whatsappMessage += `✅ Верно\n\n`;
+                } else {
+                    whatsappMessage += `❌ Неверно\n\n`;
+                }
+            }
+
+            // Кодируем сообщение для URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Формируем ссылку WhatsApp
+            const whatsappUrl = `https://wa.me/${managerPhone}?text=${encodedMessage}`;
+            
+            // Открываем WhatsApp в новом окне
             window.open(whatsappUrl, '_blank');
             
-            // Confetti effect
-            createConfetti();
+            // Показываем финальный экран
+            document.getElementById('whatsappInfo').classList.add('hidden');
+            document.getElementById('finalScreen').style.display = 'block';
+            document.getElementById('finalMessage').textContent = `Вы ответили правильно на ${testData.score} из ${testData.totalQuestions} вопросов (${testData.percentage}%).`;
         });
-        
-        // Floating hearts animation
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts');
-            const heartCount = 20;
-            
-            for (let i = 0; i < heartCount; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.innerHTML = ['❤', '✨', '🌸'][Math.floor(Math.random() * 3)];
-                    heart.classList.add('heart');
-                    heart.style.left = Math.random() * 100 + 'vw';
-                    heart.style.top = '100vh';
-                    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-                    heart.style.animationDelay = Math.random() * 5 + 's';
-                    heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
-                    heartsContainer.appendChild(heart);
-                }, i * 300);
-            }
-        }
-        
-        // Confetti effect
-        function createConfetti() {
-            const container = document.querySelector('.container');
-            const colors = ['#b76e79', '#d4af37', '#8b4513', '#f5e1e3', '#e8c9d0'];
-            
-            for (let i = 0; i < 100; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.innerHTML = ['❤', '✨', '🌸', '🎉', '💍'][Math.floor(Math.random() * 5)];
-                    confetti.style.position = 'fixed';
-                    confetti.style.left = Math.random() * window.innerWidth + 'px';
-                    confetti.style.top = '-20px';
-                    confetti.style.fontSize = (Math.random() * 20 + 10) + 'px';
-                    confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.zIndex = '1000';
-                    confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
-                    document.body.appendChild(confetti);
-                    
-                    setTimeout(() => {
-                        confetti.remove();
-                    }, 3000);
-                }, i * 30);
-            }
-        }
-        
-        // Add animation to elements when scrolling
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.timeline-item, .dress-code-item, .gallery-item');
-            
-            elements.forEach((element, index) => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    setTimeout(() => {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }, index * 100);
-                }
-            });
-        }
-        
-        // Initialize animations
-        window.addEventListener('DOMContentLoaded', function() {
-            createHearts();
-            
-            // Set initial styles for scroll animation
-            document.querySelectorAll('.timeline-item, .dress-code-item, .gallery-item').forEach(element => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    
+    </script>
+</body>
+</html>
