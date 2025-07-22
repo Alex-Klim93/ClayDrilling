@@ -98,6 +98,12 @@
             color: green;
             font-weight: bold;
         }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -1424,8 +1430,17 @@
                         
                         
                         
+                        
+                        
+    <!-- ... (существующая HTML-разметка до кнопки отправки) ... -->
 
-<button type="button" id="submitTestBtn">Завершить тест</button>
+
+
+
+
+
+
+    <button type="button" id="submitTestBtn">Завершить тест</button>
 
     <div id="finalScreen">
         <h2>Тест завершен!</h2>
@@ -1438,110 +1453,267 @@
     </div>
 
     <script>
-        // Правильные ответы
-        const correctAnswers = {
-            q1: "b", q2: "c", q3: "b", q4: "b", q5: "b",
-            q6: "a", q7: "a", q8: "c", q9: "a", q10: "a",
-            // ... (добавьте правильные ответы для всех вопросов)
-            q90: "a", q91: "a", q92: "a", q93: "d", q94: "d",
-            q95: "a", q96: "a"
-        };
+    // Полный объект с правильными ответами (125 вопросов)
+    const correctAnswers = {
+        q1: "b", q2: "c", q3: "b", q4: "b", q5: "b",
+        q6: "a", q7: "a", q8: "c", q9: "a", q10: "a",
+        q11: "a", q12: "b", q13: "a", q14: "c", q15: "a",
+        q16: "a", q17: "a", q18: "b", q19: "a", q20: "a",
+        q21: "a", q22: "b", q23: "b", q24: "b", q25: "b",
+        q26: "b", q27: "b", q28: "c", q29: "b", q30: "b",
+        q31: "b", q32: "a", q33: "a", q34: "a", q35: "c",
+        q36: "a", q37: "a", q38: "a", q39: "b", q40: "a",
+        q41: "b", q42: "a", q43: "a", q44: "a", q45: "a",
+        q46: "a", q47: "d", q48: "c", q49: "c", q50: "a",
+        q51: "b", q52: "b", q53: "a", q54: "b", q55: "c",
+        q56: "c", q57: "c", q58: "c", q59: "b", q60: "a",
+        q61: "a", q62: "c", q63: "a", q64: "b", q65: "a",
+        q66: "c", q67: "b", q68: "a", q69: "b", q70: "b",
+        q71: "b", q72: "c", q73: "a", q74: "b", q75: "c",
+        q76: "c", q77: "d", q78: "a", q79: "d", q80: "b",
+        q81: "a", q82: "d", q83: "a", q84: "c", q85: "a",
+        q86: "d", q87: "d", q88: "d", q89: "a", q90: "a",
+        q91: "a", q92: "a", q93: "d", q94: "d", q95: "a",
+        q96: "a", q97: "a", q98: "d", q99: "a", q100: "a",
+        q101: "a", q102: "a", q103: "c", q104: "a", q105: "b",
+        q106: "b", q107: "a", q108: "a", q109: "a", q110: "b",
+        q111: "a", q112: "b", q113: "a", q114: "b", q115: "b",
+        q116: "b", q117: "b", q118: "b", q119: "a", q120: "b",
+        q121: "b", q122: "b", q123: "c", q124: "b", q125: "b"
+    };
 
-        // Telegram Bot API токен и chat ID
-        const BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN';
-        const CHAT_ID = 'YOUR_TELEGRAM_CHAT_ID';
+    // Telegram Bot API
+    const BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN';
+    const CHAT_ID = 'YOUR_TELEGRAM_CHAT_ID';
 
-        document.getElementById('startTestBtn').addEventListener('click', function() {
-            const userName = document.getElementById('userName').value;
-            const userPhone = document.getElementById('userPhone').value;
-            const userPosition = document.getElementById('userPosition').value;
-            
-            if (userName && userPhone && userPosition) {
-                document.getElementById('userInfo').style.display = 'none';
-                document.getElementById('testContainer').style.display = 'block';
-            } else {
-                alert('Пожалуйста, заполните все поля!');
-            }
-        });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Элементы формы
+        const userNameInput = document.getElementById('userName');
+        const userPhoneInput = document.getElementById('userPhone');
+        const userPositionSelect = document.getElementById('userPosition');
+        const startTestBtn = document.getElementById('startTestBtn');
+        const submitTestBtn = document.getElementById('submitTestBtn');
+        
+        // Проверка существования элементов перед добавлением обработчиков
+        if (!userNameInput || !userPhoneInput || !userPositionSelect || !startTestBtn || !submitTestBtn) {
+            console.error('Один или несколько элементов формы не найдены');
+            return;
+        }
 
-        document.getElementById('submitTestBtn').addEventListener('click', function() {
-            calculateAndSendResults();
-        });
+        // Сообщения об ошибках
+        const nameError = document.createElement('div');
+        nameError.className = 'error-message';
+        userNameInput.parentNode.insertBefore(nameError, userNameInput.nextSibling);
 
-        function calculateAndSendResults() {
-            const userName = document.getElementById('userName').value;
-            const userPhone = document.getElementById('userPhone').value;
-            const userPosition = document.getElementById('userPosition').value;
-            
-            let score = 0;
-            const totalQuestions = Object.keys(correctAnswers).length;
-            const userAnswers = {};
-            
-            // Собираем ответы и подсчитываем баллы
-            for (let i = 1; i <= totalQuestions; i++) {
-                const questionName = 'q' + i;
-                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+        const phoneError = document.createElement('div');
+        phoneError.className = 'error-message';
+        userPhoneInput.parentNode.insertBefore(phoneError, userPhoneInput.nextSibling);
+
+        const positionError = document.createElement('div');
+        positionError.className = 'error-message';
+        userPositionSelect.parentNode.insertBefore(positionError, userPositionSelect.nextSibling);
+
+        // Валидация при вводе
+        userNameInput.addEventListener('input', validateName);
+        userPhoneInput.addEventListener('input', validatePhone);
+        userPositionSelect.addEventListener('change', validatePosition);
+
+        // Запуск теста
+        startTestBtn.addEventListener('click', function() {
+            if (validateForm()) {
+                const userInfo = document.getElementById('userInfo');
+                const testContainer = document.getElementById('testContainer');
                 
-                if (selectedOption) {
-                    userAnswers[questionName] = selectedOption.value;
-                    if (selectedOption.value === correctAnswers[questionName]) {
-                        score++;
-                    }
-                }
+                if (userInfo) userInfo.style.display = 'none';
+                if (testContainer) testContainer.style.display = 'block';
             }
-            
-            const percentage = Math.round((score / totalQuestions) * 100);
-            
-            // Показываем результат
-            document.getElementById('testContainer').style.display = 'none';
-            document.getElementById('finalScreen').style.display = 'block';
-            document.getElementById('finalScore').textContent = `Ваш результат: ${score} из ${totalQuestions} (${percentage}%)`;
-            
-            // Показываем индикатор загрузки
-            document.getElementById('loadingIndicator').style.display = 'block';
-            
-            // Формируем сообщение для Telegram
-            let message = `Новый результат тестирования:\n`;
-            message += `Имя: ${userName}\n`;
-            message += `Телефон: ${userPhone}\n`;
-            message += `Должность: ${userPosition}\n`;
-            message += `Результат: ${score}/${totalQuestions} (${percentage}%)\n\n`;
-            message += `Ответы:\n`;
-            
-            // Добавляем ответы пользователя
-            for (const [question, answer] of Object.entries(userAnswers)) {
-                message += `${question}: ${answer} ${answer === correctAnswers[question] ? '✅' : '❌'}\n`;
-            }
-            
-            // Отправляем в Telegram
-            sendToTelegram(message);
+        });
+
+        // Отправка результатов
+        submitTestBtn.addEventListener('click', calculateAndSendResults);
+    });
+
+    // Функции валидации
+    function validateName() {
+        const userNameInput = document.getElementById('userName');
+        if (!userNameInput) return false;
+        
+        const name = userNameInput.value.trim();
+        const error = document.querySelector('#userName + .error-message');
+        
+        if (!error) return false;
+        
+        if (!name) {
+            error.textContent = 'Поле обязательно для заполнения';
+            error.style.display = 'block';
+            return false;
         }
         
-        function sendToTelegram(message) {
-            const url = `https://api.telegram.org/bot${7676908794:AAFxHPKev5ry44uzFEjoEzyp_uMvS72J1Aw}/sendMessage`;
-            
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    chat_id: -1002821460809,
-                    text: message,
-                    parse_mode: 'Markdown'
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                document.getElementById('loadingIndicator').style.display = 'none';
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                document.getElementById('loadingIndicator').style.display = 'none';
-                alert('Произошла ошибка при отправке результатов. Пожалуйста, свяжитесь с нами.');
-            });
+        if (!/^[а-яА-ЯёЁa-zA-Z\s-]+$/.test(name)) {
+            error.textContent = 'Допустимы только буквы, пробелы и дефисы';
+            error.style.display = 'block';
+            return false;
         }
-    </script>
+        
+        error.style.display = 'none';
+        return true;
+    }
+
+    function validatePhone() {
+        const userPhoneInput = document.getElementById('userPhone');
+        if (!userPhoneInput) return false;
+        
+        const phone = userPhoneInput.value.trim();
+        const error = document.querySelector('#userPhone + .error-message');
+        
+        if (!error) return false;
+        
+        if (!phone) {
+            error.textContent = 'Поле обязательно для заполнения';
+            error.style.display = 'block';
+            return false;
+        }
+        
+        if (!/^[\d\s()+]+$/.test(phone)) {
+            error.textContent = 'Допустимы только цифры, пробелы и символы ()+-';
+            error.style.display = 'block';
+            return false;
+        }
+        
+        error.style.display = 'none';
+        return true;
+    }
+
+    function validatePosition() {
+        const userPositionSelect = document.getElementById('userPosition');
+        if (!userPositionSelect) return false;
+        
+        const position = userPositionSelect.value;
+        const error = document.querySelector('#userPosition + .error-message');
+        
+        if (!error) return false;
+        
+        if (!position) {
+            error.textContent = 'Выберите должность';
+            error.style.display = 'block';
+            return false;
+        }
+        
+        error.style.display = 'none';
+        return true;
+    }
+
+    function validateForm() {
+        const isNameValid = validateName();
+        const isPhoneValid = validatePhone();
+        const isPositionValid = validatePosition();
+        
+        return isNameValid && isPhoneValid && isPositionValid;
+    }
+
+    function calculateAndSendResults() {
+        // Получение данных пользователя
+        const userNameInput = document.getElementById('userName');
+        const userPhoneInput = document.getElementById('userPhone');
+        const userPositionSelect = document.getElementById('userPosition');
+        
+        if (!userNameInput || !userPhoneInput || !userPositionSelect) {
+            alert('Ошибка: не удалось получить данные формы');
+            return;
+        }
+
+        const userName = userNameInput.value.trim();
+        const userPhone = userPhoneInput.value.trim();
+        const userPosition = userPositionSelect.value;
+        
+        // Проверка данных
+        if (!validateForm()) {
+            alert('Пожалуйста, исправьте ошибки в форме');
+            return;
+        }
+
+        // Подсчет результатов
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+        const userAnswers = {};
+        
+        for (let i = 1; i <= totalQuestions; i++) {
+            const questionName = 'q' + i;
+            const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+            
+            if (selectedOption) {
+                userAnswers[questionName] = selectedOption.value;
+                if (selectedOption.value === correctAnswers[questionName]) {
+                    score++;
+                }
+            }
+        }
+        
+        const percentage = Math.round((score / totalQuestions) * 100);
+        
+        // Показ результатов
+        const testContainer = document.getElementById('testContainer');
+        const finalScreen = document.getElementById('finalScreen');
+        const finalScore = document.getElementById('finalScore');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        
+        if (testContainer) testContainer.style.display = 'none';
+        if (finalScreen) finalScreen.style.display = 'block';
+        if (finalScore) finalScore.textContent = `Ваш результат: ${score} из ${totalQuestions} (${percentage}%)`;
+        if (loadingIndicator) loadingIndicator.style.display = 'block';
+        
+        // Формирование сообщения для Telegram
+        let message = `Новый результат тестирования:\n`;
+        message += `Имя: ${userName}\n`;
+        message += `Телефон: ${userPhone}\n`;
+        message += `Должность: ${userPosition}\n`;
+        message += `Результат: ${score}/${totalQuestions} (${percentage}%)\n\n`;
+        message += `Ответы:\n`;
+        
+        for (const [question, answer] of Object.entries(userAnswers)) {
+            message += `${question}: ${answer} ${answer === correctAnswers[question] ? '✅' : '❌'}\n`;
+        }
+        
+        // Отправка в Telegram
+        sendToTelegram(message, loadingIndicator);
+    }
+    
+    function sendToTelegram(message, loadingIndicator) {
+        if (!BOT_TOKEN || !CHAT_ID) {
+            console.error('Не указаны BOT_TOKEN или CHAT_ID');
+            if (loadingIndicator) loadingIndicator.style.display = 'none';
+            return;
+        }
+
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: message,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Успешная отправка:', data);
+            if (loadingIndicator) loadingIndicator.style.display = 'none';
+        })
+        .catch((error) => {
+            console.error('Ошибка отправки:', error);
+            if (loadingIndicator) loadingIndicator.style.display = 'none';
+            alert('Произошла ошибка при отправке результатов. Пожалуйста, свяжитесь с нами.');
+        });
+    }
+</script>
 </body>
 </html>
