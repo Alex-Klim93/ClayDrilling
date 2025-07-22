@@ -32,10 +32,6 @@
         .options {
             margin-left: 20px;
         }
-        .correct {
-            color: green;
-            font-weight: bold;
-        }
         button {
             display: block;
             margin: 30px auto;
@@ -91,6 +87,17 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+            font-style: italic;
+            color: #666;
+        }
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -125,145 +132,1354 @@
                     </div>
                 </div>
                 
-                <!-- Остальные вопросы остаются без изменений -->
-                <!-- ... -->
-                
+                <div class="question">
+                    <p>2. Как называется инструмент для выколачивания штифтов и валов?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="a"> а) Киянка</label><br>
+                        <label><input type="radio" name="q2" value="b"> б) Молоток-гвоздодер</label><br>
+                        <label><input type="radio" name="q2" value="c"> в) Бородок</label><br>
+                        <label><input type="radio" name="q2" value="d"> г) Зубило</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Какой инструмент применяется для гибки листового металла?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="a"> а) Тиски</label><br>
+                        <label><input type="radio" name="q3" value="b"> б) Круглогубцы</label><br>
+                        <label><input type="radio" name="q3" value="c"> в) Киянка</label><br>
+                        <label><input type="radio" name="q3" value="d"> г) Оправка</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Как называется инструмент для удаления заусенцев?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="a"> а) Шабер</label><br>
+                        <label><input type="radio" name="q4" value="b"> б) Напильник</label><br>
+                        <label><input type="radio" name="q4" value="c"> в) Надфиль</label><br>
+                        <label><input type="radio" name="q4" value="d"> г) Рашпиль</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Какой инструмент используют для разметки металла?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="a"> а) Кернер</label><br>
+                        <label><input type="radio" name="q5" value="b"> б) Чертилка</label><br>
+                        <label><input type="radio" name="q5" value="c"> в) Штангенциркуль</label><br>
+                        <label><input type="radio" name="q5" value="d"> г) Угольник</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Какой инструмент нужен для выравнивания кромок детали?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="a"> а) Рифлёный молоток</label><br>
+                        <label><input type="radio" name="q6" value="b"> б) Киянка</label><br>
+                        <label><input type="radio" name="q6" value="c"> в) Ручной рубанок</label><br>
+                        <label><input type="radio" name="q6" value="d"> г) Шабровка</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Как называется инструмент для пробивания отверстий в металле?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="a"> а) Пробойник</label><br>
+                        <label><input type="radio" name="q7" value="b"> б) Зенкер</label><br>
+                        <label><input type="radio" name="q7" value="c"> в) Сверло</label><br>
+                        <label><input type="radio" name="q7" value="d"> г) Долото</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Какой инструмент используют для натягивания пружин?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="a"> а) Клещи</label><br>
+                        <label><input type="radio" name="q8" value="b"> б) Плоскогубцы</label><br>
+                        <label><input type="radio" name="q8" value="c"> в) Специальные захваты</label><br>
+                        <label><input type="radio" name="q8" value="d"> г) Разводной ключ</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Как называется инструмент для выравнивания валов?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="a"> а) Правильная плита</label><br>
+                        <label><input type="radio" name="q9" value="b"> б) Рихтовальные клещи</label><br>
+                        <label><input type="radio" name="q9" value="c"> в) Притир</label><br>
+                        <label><input type="radio" name="q9" value="d"> г) Шабровка</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Какой инструмент применяют для снятия фасок?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="a"> а) Зенковка</label><br>
+                        <label><input type="radio" name="q10" value="b"> б) Развертка</label><br>
+                        <label><input type="radio" name="q10" value="c"> в) Шабер</label><br>
+                        <label><input type="radio" name="q10" value="d"> г) Напильник</label>
+                    </div>
+                </div>
             </div>
 
             <!-- Раздел 2: Измерительный инструмент -->
             <div class="section-title">2. Измерительный инструмент</div>
             <div class="test-section">
-                <!-- Вопросы раздела 2 -->
-                <!-- ... -->
+                <div class="question">
+                    <p>1. Какой инструмент измеряет глубину паза?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q11" value="a"> а) Штангенглубиномер</label><br>
+                        <label><input type="radio" name="q11" value="b"> б) Микрометр</label><br>
+                        <label><input type="radio" name="q11" value="c"> в) Нутромер</label><br>
+                        <label><input type="radio" name="q11" value="d"> г) Индикатор</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Какой прибор измеряет отклонение от плоскостности?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q12" value="a"> а) Щуп</label><br>
+                        <label><input type="radio" name="q12" value="b"> б) Линейка-поверочная</label><br>
+                        <label><input type="radio" name="q12" value="c"> в) Уровень</label><br>
+                        <label><input type="radio" name="q12" value="d"> г) Индикатор</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Какой инструмент измеряет шаг резьбы?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q13" value="a"> а) Резьбомер</label><br>
+                        <label><input type="radio" name="q13" value="b"> б) Штангенциркуль</label><br>
+                        <label><input type="radio" name="q13" value="c"> в) Микрометр</label><br>
+                        <label><input type="radio" name="q13" value="d"> г) Угломер</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Как называется прибор для измерения углов?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q14" value="a"> а) Угольник</label><br>
+                        <label><input type="radio" name="q14" value="b"> б) Транспортир</label><br>
+                        <label><input type="radio" name="q14" value="c"> в) Угломер</label><br>
+                        <label><input type="radio" name="q14" value="d"> г) Нивелир</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Какой инструмент измеряет биение вала?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q15" value="a"> а) Индикатор часового типа</label><br>
+                        <label><input type="radio" name="q15" value="b"> б) Штангенциркуль</label><br>
+                        <label><input type="radio" name="q15" value="c"> в) Микрометр</label><br>
+                        <label><input type="radio" name="q15" value="d"> г) Нутромер</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Какой инструмент используют для проверки прямого угла?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q16" value="a"> а) Угольник</label><br>
+                        <label><input type="radio" name="q16" value="b"> б) Уровень</label><br>
+                        <label><input type="radio" name="q16" value="c"> в) Линейка</label><br>
+                        <label><input type="radio" name="q16" value="d"> г) Щуп</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Какой прибор измеряет зазор между деталями?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q17" value="a"> а) Щуп</label><br>
+                        <label><input type="radio" name="q17" value="b"> б) Микрометр</label><br>
+                        <label><input type="radio" name="q17" value="c"> в) Штангенциркуль</label><br>
+                        <label><input type="radio" name="q17" value="d"> г) Нутромер</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Какой инструмент измеряет наружный диаметр с высокой точностью?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q18" value="a"> а) Штангенциркуль</label><br>
+                        <label><input type="radio" name="q18" value="b"> б) Микрометр</label><br>
+                        <label><input type="radio" name="q18" value="c"> в) Нутромер</label><br>
+                        <label><input type="radio" name="q18" value="d"> г) Резьбомер</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Как называется прибор для проверки соосности?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q19" value="a"> а) Индикаторная стойка</label><br>
+                        <label><input type="radio" name="q19" value="b"> б) Уровень</label><br>
+                        <label><input type="radio" name="q19" value="c"> в) Теодолит</label><br>
+                        <label><input type="radio" name="q19" value="d"> г) Нивелир</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Какой инструмент измеряет шероховатость поверхности?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q20" value="a"> а) Профилометр</label><br>
+                        <label><input type="radio" name="q20" value="b"> б) Микрометр</label><br>
+                        <label><input type="radio" name="q20" value="c"> в) Щуп</label><br>
+                        <label><input type="radio" name="q20" value="d"> г) Индикатор</label>
+                    </div>
+                </div>
             </div>
 
             <!-- Раздел 3: Режущий инструмент -->
             <div class="section-title">3. Режущий инструмент</div>
             <div class="test-section">
-                <!-- Вопросы раздела 3 -->
-                <!-- ... -->
+                <div class="question">
+                    <p>1. Какой резец используется для чернового точения?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q21" value="a"> а) Проходной отогнутый</label><br>
+                        <label><input type="radio" name="q21" value="b"> б) Расточной</label><br>
+                        <label><input type="radio" name="q21" value="c"> в) Подрезной</label><br>
+                        <label><input type="radio" name="q21" value="d"> г) Резьбовой</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Какой угол у сверла по металлу стандартного типа?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q22" value="a"> а) 90°</label><br>
+                        <label><input type="radio" name="q22" value="b"> б) 118°</label><br>
+                        <label><input type="radio" name="q22" value="c"> в) 135°</label><br>
+                        <label><input type="radio" name="q22" value="d"> г) 60°</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Как называется режущая часть фрезы?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q23" value="a"> а) Хвостовик</label><br>
+                        <label><input type="radio" name="q23" value="b"> б) Зуб</label><br>
+                        <label><input type="radio" name="q23" value="c"> в) Лезвие</label><br>
+                        <label><input type="radio" name="q23" value="d"> г) Кромка</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Какой инструмент используют для чистовой обработки отверстий?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q24" value="a"> а) Зенкер</label><br>
+                        <label><input type="radio" name="q24" value="b"> б) Развертка</label><br>
+                        <label><input type="radio" name="q24" value="c"> в) Метчик</label><br>
+                        <label><input type="radio" name="q24" value="d"> г) Сверло</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Какой материал чаще всего используют для изготовления твердосплавных пластин?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q25" value="a"> а) Быстрорежущая сталь</label><br>
+                        <label><input type="radio" name="q25" value="b"> б) ВК8</label><br>
+                        <label><input type="radio" name="q25" value="c"> в) P6M5</label><br>
+                        <label><input type="radio" name="q25" value="d"> г) У8А</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Как называется угол между передней поверхностью резца и плоскостью резания?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q26" value="a"> а) Главный угол</label><br>
+                        <label><input type="radio" name="q26" value="b"> б) Передний угол</label><br>
+                        <label><input type="radio" name="q26" value="c"> в) Угол заострения</label><br>
+                        <label><input type="radio" name="q26" value="d"> г) Угол наклона</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Какой инструмент используют для нарезания внутренней резьбы?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q27" value="a"> а) Плашка</label><br>
+                        <label><input type="radio" name="q27" value="b"> б) Метчик</label><br>
+                        <label><input type="radio" name="q27" value="c"> в) Зенкер</label><br>
+                        <label><input type="radio" name="q27" value="d"> г) Развертка</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Как называется процесс заточки резца для восстановления режущих кромок?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q28" value="a"> а) Правка</label><br>
+                        <label><input type="radio" name="q28" value="b"> б) Закалка</label><br>
+                        <label><input type="radio" name="q28" value="c"> в) Переточка</label><br>
+                        <label><input type="radio" name="q28" value="d"> г) Отпуск</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Какой параметр определяет стойкость инструмента?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q29" value="a"> а) Твердость</label><br>
+                        <label><input type="radio" name="q29" value="b"> б) Время работы до затупления</label><br>
+                        <label><input type="radio" name="q29" value="c"> в) Угол заточки</label><br>
+                        <label><input type="radio" name="q29" value="d"> г) Скорость резания</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Как называется инструмент для обработки торцов?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q30" value="a"> а) Проходной резец</label><br>
+                        <label><input type="radio" name="q30" value="b"> б) Подрезной резец</label><br>
+                        <label><input type="radio" name="q30" value="c"> в) Расточной резец</label><br>
+                        <label><input type="radio" name="q30" value="d"> г) Резьбовой резец</label>
+                    </div>
+                </div>
             </div>
 
-            <!-- Кнопка отправки -->
-            <button type="button" id="submitBtn">Завершить тест</button>
-        </form>
+            <!-- Раздел 4: Материаловедение (марки стали) -->
+            <div class="section-title">4. Материаловедение (марки стали)</div>
+            <div class="test-section">
+                <div class="question">
+                    <p>1. Как обозначается углеродистая сталь обыкновенного качества?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q31" value="a"> а) У8</label><br>
+                        <label><input type="radio" name="q31" value="b"> б) Ст3</label><br>
+                        <label><input type="radio" name="q31" value="c"> в) 40Х</label><br>
+                        <label><input type="radio" name="q31" value="d"> г) ШХ15</label>
+                    </div>
+                </div>
 
-        <div id="result"></div>
+                <div class="question">
+                    <p>2. Что означает буква "У" в марке стали У8А?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q32" value="a"> а) Углеродистая</label><br>
+                        <label><input type="radio" name="q32" value="b"> б) Улучшенная</label><br>
+                        <label><input type="radio" name="q32" value="c"> в) Ударопрочная</label><br>
+                        <label><input type="radio" name="q32" value="d"> г) Универсальная</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Какой элемент добавляется в сталь марки 40Х?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q33" value="a"> а) Хром</label><br>
+                        <label><input type="radio" name="q33" value="b"> б) Никель</label><br>
+                        <label><input type="radio" name="q33" value="c"> в) Вольфрам</label><br>
+                        <label><input type="radio" name="q33" value="d"> г) Молибден</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Как расшифровывается марка стали Р6М5?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q34" value="a"> а) Быстрорежущая с молибденом</label><br>
+                        <label><input type="radio" name="q34" value="b"> б) Радиационная сталь</label><br>
+                        <label><input type="radio" name="q34" value="c"> в) Рессорная сталь</label><br>
+                        <label><input type="radio" name="q34" value="d"> г) Ротационная сталь</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Какая сталь относится к инструментальным?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q35" value="a"> а) Ст3</label><br>
+                        <label><input type="radio" name="q35" value="b"> б) 40Х</label><br>
+                        <label><input type="radio" name="q35" value="c"> в) У8</label><br>
+                        <label><input type="radio" name="q35" value="d"> г) 09Г2С</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Что означает цифра 45 в марке стали 45?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q36" value="a"> а) Содержание углерода 0.45%</label><br>
+                        <label><input type="radio" name="q36" value="b"> б) Предел прочности 45 кг/мм²</label><br>
+                        <label><input type="radio" name="q36" value="c"> в) Твердость 45 HRC</label><br>
+                        <label><input type="radio" name="q36" value="d"> г) Содержание легирующих элементов 4.5%</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Какая сталь используется для изготовления пружин?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q37" value="a"> а) 65Г</label><br>
+                        <label><input type="radio" name="q37" value="b"> б) 40Х</label><br>
+                        <label><input type="radio" name="q37" value="c"> в) У8</label><br>
+                        <label><input type="radio" name="q37" value="d"> г) ШХ15</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Какой материал обозначается как ВК8?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q38" value="a"> а) Вольфрамо-кобальтовый твердый сплав</label><br>
+                        <label><input type="radio" name="q38" value="b"> б) Высокоуглеродистая сталь</label><br>
+                        <label><input type="radio" name="q38" value="c"> в) Быстрорежущая сталь</label><br>
+                        <label><input type="radio" name="q38" value="d"> г) Легированная сталь</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Какая сталь обладает высокой износостойкостью?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q39" value="a"> а) Ст3</label><br>
+                        <label><input type="radio" name="q39" value="b"> б) Х12МФ</label><br>
+                        <label><input type="radio" name="q39" value="c"> в) 09Г2С</label><br>
+                        <label><input type="radio" name="q39" value="d"> г) 40Х</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Какой материал используется для быстрорежущих инструментов?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q40" value="a"> а) Р6М5</label><br>
+                        <label><input type="radio" name="q40" value="b"> б) У8</label><br>
+                        <label><input type="radio" name="q40" value="c"> в) Ст3</label><br>
+                        <label><input type="radio" name="q40" value="d"> г) 40Х</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Раздел 5: Геометрия (школьная программа) -->
+            <div class="section-title">5. Геометрия (школьная программа)</div>
+            <div class="test-section">
+                <div class="question">
+                    <p>1. Чему равен угол в правильном шестиугольнике?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q41" value="a"> а) 90°</label><br>
+                        <label><input type="radio" name="q41" value="b"> б) 120°</label><br>
+                        <label><input type="radio" name="q41" value="c"> в) 135°</label><br>
+                        <label><input type="radio" name="q41" value="d"> г) 60°</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Как найти площадь круга?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q42" value="a"> а) πr²</label><br>
+                        <label><input type="radio" name="q42" value="b"> б) 2πr</label><br>
+                        <label><input type="radio" name="q42" value="c"> в) πd</label><br>
+                        <label><input type="radio" name="q42" value="d"> г) (πd²)/4</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Какой формулой выражается теорема Пифагора?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q43" value="a"> а) a² + b² = c²</label><br>
+                        <label><input type="radio" name="q43" value="b"> б) S = (a + b)/2 * h</label><br>
+                        <label><input type="radio" name="q43" value="c"> в) V = πr²h</label><br>
+                        <label><input type="radio" name="q43" value="d"> г) P = 2(a + b)</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Чему равен объем цилиндра?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q44" value="a"> а) πr²h</label><br>
+                        <label><input type="radio" name="q44" value="b"> б) 4/3πr³</label><br>
+                        <label><input type="radio" name="q44" value="c"> в) a³</label><br>
+                        <label><input type="radio" name="q44" value="d"> г) lwh</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Как найти длину окружности?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q45" value="a"> а) 2πr</label><br>
+                        <label><input type="radio" name="q45" value="b"> б) πr²</label><br>
+                        <label><input type="radio" name="q45" value="c"> в) πd</label><br>
+                        <label><input type="radio" name="q45" value="d"> г) (πd²)/4</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Чему равна площадь треугольника?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q46" value="a"> а) (a * h)/2</label><br>
+                        <label><input type="radio" name="q46" value="b"> б) a * b</label><br>
+                        <label><input type="radio" name="q46" value="c"> в) πr²</label><br>
+                        <label><input type="radio" name="q46" value="d"> г) a²</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Какой фигуры не существует?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q47" value="a"> а) Пятиугольник</label><br>
+                        <label><input type="radio" name="q47" value="b"> б) Десятиугольник</label><br>
+                        <label><input type="radio" name="q47" value="c"> в) Треугольник</label><br>
+                        <label><input type="radio" name="q47" value="d"> г) Двуугольник</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Чему равен внешний угол треугольника?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q48" value="a"> а) 180°</label><br>
+                        <label><input type="radio" name="q48" value="b"> б) 360°</label><br>
+                        <label><input type="radio" name="q48" value="c"> в) Сумме двух внутренних</label><br>
+                        <label><input type="radio" name="q48" value="d"> г) 90°</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Как называется фигура с 8 сторонами?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q49" value="a"> а) Шестиугольник</label><br>
+                        <label><input type="radio" name="q49" value="b"> б) Семиугольник</label><br>
+                        <label><input type="radio" name="q49" value="c"> в) Восьмиугольник</label><br>
+                        <label><input type="radio" name="q49" value="d"> г) Девятиугольник</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Чему равен объем конуса?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q50" value="a"> а) (πr²h)/3</label><br>
+                        <label><input type="radio" name="q50" value="b"> б) 4/3πr³</label><br>
+                        <label><input type="radio" name="q50" value="c"> в) πr²h</label><br>
+                        <label><input type="radio" name="q50" value="d"> г) a³</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Раздел 6: Математика (школьная программа) -->
+            <div class="section-title">6. Математика (школьная программа)</div>
+            <div class="test-section">
+                <div class="question">
+                    <p>1. Чему равно значение выражения 5 + 3 × 2?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q51" value="a"> а) 16</label><br>
+                        <label><input type="radio" name="q51" value="b"> б) 11</label><br>
+                        <label><input type="radio" name="q51" value="c"> в) 13</label><br>
+                        <label><input type="radio" name="q51" value="d"> г) 10</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Какой будет результат вычисления √144?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q52" value="a"> а) 11</label><br>
+                        <label><input type="radio" name="q52" value="b"> б) 12</label><br>
+                        <label><input type="radio" name="q52" value="c"> в) 13</label><br>
+                        <label><input type="radio" name="q52" value="d"> г) 14</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Чему равен sin 30°?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q53" value="a"> а) 0.5</label><br>
+                        <label><input type="radio" name="q53" value="b"> б) 0.707</label><br>
+                        <label><input type="radio" name="q53" value="c"> в) 0.866</label><br>
+                        <label><input type="radio" name="q53" value="d"> г) 1</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Какой будет результат вычисления 25% от 200?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q54" value="a"> а) 25</label><br>
+                        <label><input type="radio" name="q54" value="b"> б) 50</label><br>
+                        <label><input type="radio" name="q54" value="c"> в) 75</label><br>
+                        <label><input type="radio" name="q54" value="d"> г) 100</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Как перевести 3/4 в десятичную дробь?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q55" value="a"> а) 0.25</label><br>
+                        <label><input type="radio" name="q55" value="b"> б) 0.5</label><br>
+                        <label><input type="radio" name="q55" value="c"> в) 0.75</label><br>
+                        <label><input type="radio" name="q55" value="d"> г) 1.0</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Чему равно значение выражения 2³?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q56" value="a"> а) 4</label><br>
+                        <label><input type="radio" name="q56" value="b"> б) 6</label><br>
+                        <label><input type="radio" name="q56" value="c"> в) 8</label><br>
+                        <label><input type="radio" name="q56" value="d"> г) 9</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Какой будет результат вычисления 15 - 8 ÷ 2?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q57" value="a"> а) 3.5</label><br>
+                        <label><input type="radio" name="q57" value="b"> б) 7</label><br>
+                        <label><input type="radio" name="q57" value="c"> в) 11</label><br>
+                        <label><input type="radio" name="q57" value="d"> г) 13</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Чему равен tg 45°?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q58" value="a"> а) 0</label><br>
+                        <label><input type="radio" name="q58" value="b"> б) 0.5</label><br>
+                        <label><input type="radio" name="q58" value="c"> в) 1</label><br>
+                        <label><input type="radio" name="q58" value="d"> г) 2</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Какой будет результат вычисления 0.1 × 0.2?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q59" value="a"> а) 0.002</label><br>
+                        <label><input type="radio" name="q59" value="b"> б) 0.02</label><br>
+                        <label><input type="radio" name="q59" value="c"> в) 0.2</label><br>
+                        <label><input type="radio" name="q59" value="d"> г) 2</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Как перевести 0.125 в обыкновенную дробь?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q60" value="a"> а) 1/8</label><br>
+                        <label><input type="radio" name="q60" value="b"> б) 1/4</label><br>
+                        <label><input type="radio" name="q60" value="c"> в) 1/2</label><br>
+                        <label><input type="radio" name="q60" value="d"> г) 3/4</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Раздел 7: Тригонометрия -->
+            <div class="section-title">7. Тригонометрия</div>
+            <div class="test-section">
+                <div class="question">
+                    <p>1. Чему равен cos 60°?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q61" value="a"> а) 0.5</label><br>
+                        <label><input type="radio" name="q61" value="b"> б) 0.707</label><br>
+                        <label><input type="radio" name="q61" value="c"> в) 0.866</label><br>
+                        <label><input type="radio" name="q61" value="d"> г) 1</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Какой будет результат вычисления sin²α + cos²α?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q62" value="a"> а) 0</label><br>
+                        <label><input type="radio" name="q62" value="b"> б) 0.5</label><br>
+                        <label><input type="radio" name="q62" value="c"> в) 1</label><br>
+                        <label><input type="radio" name="q62" value="d"> г) 2</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Чему равен ctg 30°?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q63" value="a"> а) √3</label><br>
+                        <label><input type="radio" name="q63" value="b"> б) 1/√3</label><br>
+                        <label><input type="radio" name="q63" value="c"> в) 1</label><br>
+                        <label><input type="radio" name="q63" value="d"> г) 0</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Какой будет результат вычисления sin(90° - α)?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q64" value="a"> а) sinα</label><br>
+                        <label><input type="radio" name="q64" value="b"> б) cosα</label><br>
+                        <label><input type="radio" name="q64" value="c"> в) tgα</label><br>
+                        <label><input type="radio" name="q64" value="d"> г) ctgα</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Чему равен arcsin(0.5)?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q65" value="a"> а) 30°</label><br>
+                        <label><input type="radio" name="q65" value="b"> б) 45°</label><br>
+                        <label><input type="radio" name="q65" value="c"> в) 60°</label><br>
+                        <label><input type="radio" name="q65" value="d"> г) 90°</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Какой будет результат вычисления 2sin45°cos45°?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q66" value="a"> а) 0.5</label><br>
+                        <label><input type="radio" name="q66" value="b"> б) 0.707</label><br>
+                        <label><input type="radio" name="q66" value="c"> в) 1</label><br>
+                        <label><input type="radio" name="q66" value="d"> г) 2</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Чему равен sin180°?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q67" value="a"> а) -1</label><br>
+                        <label><input type="radio" name="q67" value="b"> б) 0</label><br>
+                        <label><input type="radio" name="q67" value="c"> в) 0.5</label><br>
+                        <label><input type="radio" name="q67" value="d"> г) 1</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Какой будет результат вычисления cos(π/3)?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q68" value="a"> а) 0.5</label><br>
+                        <label><input type="radio" name="q68" value="b"> б) 0.707</label><br>
+                        <label><input type="radio" name="q68" value="c"> в) 0.866</label><br>
+                        <label><input type="radio" name="q68" value="d"> г) 1</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Чему равен arctg(1)?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q69" value="a"> а) 30°</label><br>
+                        <label><input type="radio" name="q69" value="b"> б) 45°</label><br>
+                        <label><input type="radio" name="q69" value="c"> в) 60°</label><br>
+                        <label><input type="radio" name="q69" value="d"> г) 90°</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Какой будет результат вычисления sin(2α)?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q70" value="a"> а) 2sinα</label><br>
+                        <label><input type="radio" name="q70" value="b"> б) 2sinαcosα</label><br>
+                        <label><input type="radio" name="q70" value="c"> в) sin²α</label><br>
+                        <label><input type="radio" name="q70" value="d"> г) cos²α</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Раздел 8: Устройство станка с ЧПУ -->
+            <div class="section-title">8. Устройство станка с ЧПУ</div>
+            <div class="test-section">
+                <div class="question">
+                    <p>1. Какой элемент станка с ЧПУ отвечает за перемещение инструмента?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q71" value="a"> а) Шпиндель</label><br>
+                        <label><input type="radio" name="q71" value="b"> б) Суппорт</label><br>
+                        <label><input type="radio" name="q71" value="c"> в) Станина</label><br>
+                        <label><input type="radio" name="q71" value="d"> г) Панель управления</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Как называется программа для управления станком с ЧПУ?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q72" value="a"> а) CAD</label><br>
+                        <label><input type="radio" name="q72" value="b"> б) CAM</label><br>
+                        <label><input type="radio" name="q72" value="c"> в) УП (управляющая программа)</label><br>
+                        <label><input type="radio" name="q72" value="d"> г) ЧПУ-контроллер</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Какой датчик контролирует положение суппорта?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q73" value="a"> а) Энкодер</label><br>
+                        <label><input type="radio" name="q73" value="b"> б) Термопара</label><br>
+                        <label><input type="radio" name="q73" value="c"> в) Датчик давления</label><br>
+                        <label><input type="radio" name="q73" value="d"> г) Тензодатчик</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Какой параметр задает скорость вращения шпинделя?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q74" value="a"> а) F</label><br>
+                        <label><input type="radio" name="q74" value="b"> б) S</label><br>
+                        <label><input type="radio" name="q74" value="c"> в) T</label><br>
+                        <label><input type="radio" name="q74" value="d"> г) M</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Какой G-код включает подачу охлаждающей жидкости?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q75" value="a"> а) M03</label><br>
+                        <label><input type="radio" name="q75" value="b"> б) M05</label><br>
+                        <label><input type="radio" name="q75" value="c"> в) M08</label><br>
+                        <label><input type="radio" name="q75" value="d"> г) M30</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Как называется система координат станка?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q76" value="a"> а) Абсолютная</label><br>
+                        <label><input type="radio" name="q76" value="b"> б) Относительная</label><br>
+                        <label><input type="radio" name="q76" value="c"> в) Машинная</label><br>
+                        <label><input type="radio" name="q76" value="d"> г) Рабочая</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Какой элемент отвечает за крепление инструмента?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q77" value="a"> а) Цанга</label><br>
+                        <label><input type="radio" name="q77" value="b"> б) Патрон</label><br>
+                        <label><input type="radio" name="q77" value="c"> в) Конус Морзе</label><br>
+                        <label><input type="radio" name="q77" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Какой параметр задает скорость подачи?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q78" value="a"> а) F</label><br>
+                        <label><input type="radio" name="q78" value="b"> б) S</label><br>
+                        <label><input type="radio" name="q78" value="c"> в) T</label><br>
+                        <label><input type="radio" name="q78" value="d"> г) M</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Какой G-код останавливает программу?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q79" value="a"> а) M00</label><br>
+                        <label><input type="radio" name="q79" value="b"> б) M02</label><br>
+                        <label><input type="radio" name="q79" value="c"> в) M05</label><br>
+                        <label><input type="radio" name="q79" value="d"> г) M30</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Как называется файл с управляющей программой?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q80" value="a"> а) .txt</label><br>
+                        <label><input type="radio" name="q80" value="b"> б) .nc</label><br>
+                        <label><input type="radio" name="q80" value="c"> в) .cnc</label><br>
+                        <label><input type="radio" name="q80" value="d"> г) .gcode</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Раздел 9: Устройство токарного универсального станка -->
+            <div class="section-title">9. Устройство токарного универсального станка</div>
+            <div class="test-section">
+                <div class="question">
+                    <p>1. Какой элемент передает вращение на шпиндель?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q81" value="a"> а) Коробка скоростей</label><br>
+                        <label><input type="radio" name="q81" value="b"> б) Суппорт</label><br>
+                        <label><input type="radio" name="q81" value="c"> в) Фартук</label><br>
+                        <label><input type="radio" name="q81" value="d"> г) Станина</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Как называется механизм продольного перемещения суппорта?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q82" value="a"> а) Ходовой винт</label><br>
+                        <label><input type="radio" name="q82" value="b"> б) Винт подачи</label><br>
+                        <label><input type="radio" name="q82" value="c"> в) Реечная передача</label><br>
+                        <label><input type="radio" name="q82" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Какой элемент крепит резец?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q83" value="a"> а) Резцедержатель</label><br>
+                        <label><input type="radio" name="q83" value="b"> б) Суппорт</label><br>
+                        <label><input type="radio" name="q83" value="c"> в) Каретка</label><br>
+                        <label><input type="radio" name="q83" value="d"> г) Фартук</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Как называется механизм поперечного перемещения суппорта?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q84" value="a"> а) Ходовой винт</label><br>
+                        <label><input type="radio" name="q84" value="b"> б) Винт подачи</label><br>
+                        <label><input type="radio" name="q84" value="c"> в) Поперечные салазки</label><br>
+                        <label><input type="radio" name="q84" value="d"> г) Реечная передача</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Какой элемент станка является основанием?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q85" value="a"> а) Станина</label><br>
+                        <label><input type="radio" name="q85" value="b"> б) Суппорт</label><br>
+                        <label><input type="radio" name="q85" value="c"> в) Шпиндель</label><br>
+                        <label><input type="radio" name="q85" value="d"> г) Коробка подач</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Как называется механизм нарезания резьбы?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q86" value="a"> а) Гитарой</label><br>
+                        <label><input type="radio" name="q86" value="b"> б) Коробкой подач</label><br>
+                        <label><input type="radio" name="q86" value="c"> в) Ходовым винтом</label><br>
+                        <label><input type="radio" name="q86" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Какой элемент крепит заготовку?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q87" value="a"> а) Патрон</label><br>
+                        <label><input type="radio" name="q87" value="b"> б) Центр</label><br>
+                        <label><input type="radio" name="q87" value="c"> в) Люнет</label><br>
+                        <label><input type="radio" name="q87" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. Как называется механизм ручного перемещения суппорта?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q88" value="a"> а) Маховик</label><br>
+                        <label><input type="radio" name="q88" value="b"> б) Ручка подачи</label><br>
+                        <label><input type="radio" name="q88" value="c"> в) Рычаг</label><br>
+                        <label><input type="radio" name="q88" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. Какой элемент поддерживает длинную заготовку?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q89" value="a"> а) Люнет</label><br>
+                        <label><input type="radio" name="q89" value="b"> б) Центр</label><br>
+                        <label><input type="radio" name="q89" value="c"> в) Патрон</label><br>
+                        <label><input type="radio" name="q89" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Как называется механизм изменения скорости шпинделя?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q90" value="a"> а) Коробка скоростей</label><br>
+                        <label><input type="radio" name="q90" value="b"> б) Коробка подач</label><br>
+                        <label><input type="radio" name="q90" value="c"> в) Гитарой</label><br>
+                        <label><input type="radio" name="q90" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Раздел 10: Слесарная работа -->
+            <div class="section-title">10. Слесарная работа</div>
+            <div class="test-section">
+                <div class="question">
+                    <p>1. Как называется операция выравнивания поверхности?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q91" value="a"> а) Шабрение</label><br>
+                        <label><input type="radio" name="q91" value="b"> б) Притирка</label><br>
+                        <label><input type="radio" name="q91" value="c"> в) Полировка</label><br>
+                        <label><input type="radio" name="q91" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. Какой инструмент используют для разметки центра отверстия?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q92" value="a"> а) Кернер</label><br>
+                        <label><input type="radio" name="q92" value="b"> б) Чертилка</label><br>
+                        <label><input type="radio" name="q92" value="c"> в) Циркуль</label><br>
+                        <label><input type="radio" name="q92" value="d"> г) Угольник</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Как называется операция увеличения диаметра отверстия?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q93" value="a"> а) Зенкерование</label><br>
+                        <label><input type="radio" name="q93" value="b"> б) Развертывание</label><br>
+                        <label><input type="radio" name="q93" value="c"> в) Растачивание</label><br>
+                        <label><input type="radio" name="q93" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. Какой инструмент используют для нарезания резьбы вручную?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q94" value="a"> а) Метчик</label><br>
+                        <label><input type="radio" name="q94" value="b"> б) Плашка</label><br>
+                        <label><input type="radio" name="q94" value="c"> в) Лерка</label><br>
+                        <label><input type="radio" name="q94" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Как называется операция снятия фаски?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q95" value="a"> а) Зенкование</label><br>
+                        <label><input type="radio" name="q95" value="b"> б) Развертывание</label><br>
+                        <label><input type="radio" name="q95" value="c"> в) Растачивание</label><br>
+                        <label><input type="radio" name="q95" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. Какой инструмент используют для пробивания отверстий?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q96" value="a"> а) Пробойник</label><br>
+                        <label><input type="radio" name="q96" value="b"> б) Зубило</label><br>
+                        <label><input type="radio" name="q96" value="c"> в) Бородок</label><br>
+                        <label><input type="radio" name="q96" value="d"> г) Все вышеперечисленное</label>
+                    </div>
+                </div>
+
+        <div class="question">
+            <p>7. Как называется операция соединения деталей заклепками?</p>
+            <div class="options">
+                <label><input type="radio" name="q97" value="a"> а) Клепка</label><br>
+                <label><input type="radio" name="q97" value="b"> б) Сварка</label><br>
+                <label><input type="radio" name="q97" value="c"> в) Пайка</label><br>
+                <label><input type="radio" name="q97" value="d"> г) Все вышеперечисленное</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>8. Какой инструмент используют для гибки листового металла?</p>
+            <div class="options">
+                <label><input type="radio" name="q98" value="a"> а) Тиски</label><br>
+                <label><input type="radio" name="q98" value="b"> б) Киянка</label><br>
+                <label><input type="radio" name="q98" value="c"> в) Оправка</label><br>
+                <label><input type="radio" name="q98" value="d"> г) Все вышеперечисленное</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>9. Как называется операция нанесения рисок на металл?</p>
+            <div class="options">
+                <label><input type="radio" name="q99" value="a"> а) Разметка</label><br>
+                <label><input type="radio" name="q99" value="b"> б) Шабрение</label><br>
+                <label><input type="radio" name="q99" value="c"> в) Притирка</label><br>
+                <label><input type="radio" name="q99" value="d"> г) Все вышеперечисленное</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>10. Какой инструмент используют для удаления заусенцев?</p>
+            <div class="options">
+                <label><input type="radio" name="q100" value="a"> а) Напильник</label><br>
+                <label><input type="radio" name="q100" value="b"> б) Шабер</label><br>
+                <label><input type="radio" name="q100" value="c"> в) Надфиль</label><br>
+                <label><input type="radio" name="q100" value="d"> г) Все вышеперечисленное</label>
+            </div>
+        </div>
     </div>
+
+    <!-- Раздел 11: Задачи на смекалку -->
+    <div class="section-title">11. Задачи на смекалку</div>
+    <div class="test-section">
+        <div class="question">
+            <p>1. У вас есть 9 одинаковых шариков, один из которых легче. Как за 2 взвешивания найти легкий шарик?</p>
+            <div class="options">
+                <label><input type="radio" name="q101" value="a"> а) Разделить на 3 группы по 3 шарика</label><br>
+                <label><input type="radio" name="q101" value="b"> б) Взвешивать по одному</label><br>
+                <label><input type="radio" name="q101" value="c"> в) Взвесить 4 против 4</label><br>
+                <label><input type="radio" name="q101" value="d"> г) Взвесить 2 против 2</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. Как измерить 15 минут, используя две песочные часы на 7 и 11 минут?</p>
+            <div class="options">
+                <label><input type="radio" name="q102" value="a"> а) Запустить обе, когда 7 минут закончатся, перевернуть их</label><br>
+                <label><input type="radio" name="q102" value="b"> б) Запустить только 11-минутные</label><br>
+                <label><input type="radio" name="q102" value="c"> в) Запустить 7-минутные, затем 11-минутные</label><br>
+                <label><input type="radio" name="q102" value="d"> г) Запустить одновременно, перевернуть 11-минутные после 7 минут</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. Какое число следующее в последовательности: 2, 4, 8, 16...?</p>
+            <div class="options">
+                <label><input type="radio" name="q103" value="a"> а) 20</label><br>
+                <label><input type="radio" name="q103" value="b"> б) 24</label><br>
+                <label><input type="radio" name="q103" value="c"> в) 32</label><br>
+                <label><input type="radio" name="q103" value="d"> г) 64</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. Как разделить 8 литров воды пополам, используя 3-литровую и 5-литровую банки?</p>
+            <div class="options">
+                <label><input type="radio" name="q104" value="a"> а) Переливать между банками до получения 4 литров</label><br>
+                <label><input type="radio" name="q104" value="b"> б) Использовать только 5-литровую банку</label><br>
+                <label><input type="radio" name="q104" value="c"> в) Вылить половину из 8-литровой емкости</label><br>
+                <label><input type="radio" name="q104" value="d"> г) Измерить линейкой</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. Сколько раз в сутки стрелки часов совпадают?</p>
+            <div class="options">
+                <label><input type="radio" name="q105" value="a"> а) 12</label><br>
+                <label><input type="radio" name="q105" value="b"> б) 22</label><br>
+                <label><input type="radio" name="q105" value="c"> в) 24</label><br>
+                <label><input type="radio" name="q105" value="d"> г) 48</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Раздел 12: G-коды -->
+    <div class="section-title">12. G-коды</div>
+    <div class="test-section">
+        <div class="question">
+            <p>1. Какой G-код задает линейную интерполяцию?</p>
+            <div class="options">
+                <label><input type="radio" name="q106" value="a"> а) G00</label><br>
+                <label><input type="radio" name="q106" value="b"> б) G01</label><br>
+                <label><input type="radio" name="q106" value="c"> в) G02</label><br>
+                <label><input type="radio" name="q106" value="d"> г) G03</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. Какой G-код включает вращение шпинделя по часовой стрелке?</p>
+            <div class="options">
+                <label><input type="radio" name="q107" value="a"> а) M03</label><br>
+                <label><input type="radio" name="q107" value="b"> б) M04</label><br>
+                <label><input type="radio" name="q107" value="c"> в) M05</label><br>
+                <label><input type="radio" name="q107" value="d"> г) M08</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. Какой G-код задает круговую интерполяцию по часовой стрелке?</p>
+            <div class="options">
+                <label><input type="radio" name="q108" value="a"> а) G02</label><br>
+                <label><input type="radio" name="q108" value="b"> б) G03</label><br>
+                <label><input type="radio" name="q108" value="c"> в) G01</label><br>
+                <label><input type="radio" name="q108" value="d"> г) G00</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. Какой G-код устанавливает абсолютную систему координат?</p>
+            <div class="options">
+                <label><input type="radio" name="q109" value="a"> а) G90</label><br>
+                <label><input type="radio" name="q109" value="b"> б) G91</label><br>
+                <label><input type="radio" name="q109" value="c"> в) G92</label><br>
+                <label><input type="radio" name="q109" value="d"> г) G94</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. Какой G-код включает подачу охлаждающей жидкости?</p>
+            <div class="options">
+                <label><input type="radio" name="q110" value="a"> а) M07</label><br>
+                <label><input type="radio" name="q110" value="b"> б) M08</label><br>
+                <label><input type="radio" name="q110" value="c"> в) M09</label><br>
+                <label><input type="radio" name="q110" value="d"> г) M10</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>6. Какой G-код задает ускоренный ход?</p>
+            <div class="options">
+                <label><input type="radio" name="q111" value="a"> а) G00</label><br>
+                <label><input type="radio" name="q111" value="b"> б) G01</label><br>
+                <label><input type="radio" name="q111" value="c"> в) G02</label><br>
+                <label><input type="radio" name="q111" value="d"> г) G03</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>7. Какой G-код устанавливает относительную систему координат?</p>
+            <div class="options">
+                <label><input type="radio" name="q112" value="a"> а) G90</label><br>
+                <label><input type="radio" name="q112" value="b"> б) G91</label><br>
+                <label><input type="radio" name="q112" value="c"> в) G92</label><br>
+                <label><input type="radio" name="q112" value="d"> г) G94</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>8. Какой G-код останавливает программу временно?</p>
+            <div class="options">
+                <label><input type="radio" name="q113" value="a"> а) M00</label><br>
+                <label><input type="radio" name="q113" value="b"> б) M01</label><br>
+                <label><input type="radio" name="q113" value="c"> в) M02</label><br>
+                <label><input type="radio" name="q113" value="d"> г) M30</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>9. Какой G-код задает круговую интерполяцию против часовой стрелки?</p>
+            <div class="options">
+                <label><input type="radio" name="q114" value="a"> а) G02</label><br>
+                <label><input type="radio" name="q114" value="b"> б) G03</label><br>
+                <label><input type="radio" name="q114" value="c"> в) G01</label><br>
+                <label><input type="radio" name="q114" value="d"> г) G00</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>10. Какой G-код завершает программу?</p>
+            <div class="options">
+                <label><input type="radio" name="q115" value="a"> а) M02</label><br>
+                <label><input type="radio" name="q115" value="b"> б) M30</label><br>
+                <label><input type="radio" name="q115" value="c"> в) M99</label><br>
+                <label><input type="radio" name="q115" value="d"> г) M05</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Раздел 13: Технический английский язык (базовый уровень) -->
+    <div class="section-title">13. Технический английский язык (базовый уровень)</div>
+    <div class="test-section">
+        <div class="question">
+            <p>1. Как переводится слово "drill" на русский?</p>
+            <div class="options">
+                <label><input type="radio" name="q116" value="a"> а) Молоток</label><br>
+                <label><input type="radio" name="q116" value="b"> б) Сверло</label><br>
+                <label><input type="radio" name="q116" value="c"> в) Гаечный ключ</label><br>
+                <label><input type="radio" name="q116" value="d"> г) Отвертка</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. Что означает слово "wrench" в техническом контексте?</p>
+            <div class="options">
+                <label><input type="radio" name="q117" value="a"> а) Напильник</label><br>
+                <label><input type="radio" name="q117" value="b"> б) Гаечный ключ</label><br>
+                <label><input type="radio" name="q117" value="c"> в) Тиски</label><br>
+                <label><input type="radio" name="q117" value="d"> г) Пассатижи</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. Как переводится "cutting tool"?</p>
+            <div class="options">
+                <label><input type="radio" name="q118" value="a"> а) Измерительный инструмент</label><br>
+                <label><input type="radio" name="q118" value="b"> б) Режущий инструмент</label><br>
+                <label><input type="radio" name="q118" value="c"> в) Слесарный инструмент</label><br>
+                <label><input type="radio" name="q118" value="d"> г) Крепежный элемент</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. Что означает "CNC"?</p>
+            <div class="options">
+                <label><input type="radio" name="q119" value="a"> а) Computer Numerical Control (ЧПУ)</label><br>
+                <label><input type="radio" name="q119" value="b"> б) Central Network Control</label><br>
+                <label><input type="radio" name="q119" value="c"> в) Cutting Node Controller</label><br>
+                <label><input type="radio" name="q119" value="d"> г) Computer Network Center</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. Как переводится "lathe"?</p>
+            <div class="options">
+                <label><input type="radio" name="q120" value="a"> а) Фрезерный станок</label><br>
+                <label><input type="radio" name="q120" value="b"> б) Токарный станок</label><br>
+                <label><input type="radio" name="q120" value="c"> в) Сверлильный станок</label><br>
+                <label><input type="radio" name="q120" value="d"> г) Шлифовальный станок</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>6. Что означает "bolt"?</p>
+            <div class="options">
+                <label><input type="radio" name="q121" value="a"> а) Гайка</label><br>
+                <label><input type="radio" name="q121" value="b"> б) Болт</label><br>
+                <label><input type="radio" name="q121" value="c"> в) Шайба</label><br>
+                <label><input type="radio" name="q121" value="d"> г) Шпилька</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>7. Как переводится "safety glasses"?</p>
+            <div class="options">
+                <label><input type="radio" name="q122" value="a"> а) Рабочие перчатки</label><br>
+                <label><input type="radio" name="q122" value="b"> б) Защитные очки</label><br>
+                <label><input type="radio" name="q122" value="c"> в) Каска</label><br>
+                <label><input type="radio" name="q122" value="d"> г) Респиратор</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>8. Что означает "micrometer"?</p>
+            <div class="options">
+                <label><input type="radio" name="q123" value="a"> а) Линейка</label><br>
+                <label><input type="radio" name="q123" value="b"> б) Штангенциркуль</label><br>
+                <label><input type="radio" name="q123" value="c"> в) Микрометр</label><br>
+                <label><input type="radio" name="q123" value="d"> г) Угломер</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>9. Как переводится "workpiece"?</p>
+            <div class="options">
+                <label><input type="radio" name="q124" value="a"> а) Инструмент</label><br>
+                <label><input type="radio" name="q124" value="b"> б) Заготовка</label><br>
+                <label><input type="radio" name="q124" value="c"> в) Станок</label><br>
+                <label><input type="radio" name="q124" value="d"> г) Крепление</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>10. Что означает "grinder"?</p>
+            <div class="options">
+                <label><input type="radio" name="q125" value="a"> а) Дрель</label><br>
+                <label><input type="radio" name="q125" value="b"> б) Болгарка (шлифовальная машина)</label><br>
+                <label><input type="radio" name="q125" value="c"> в) Токарный станок</label><br>
+                <label><input type="radio" name="q125" value="d"> г) Фрезер</label>
+            </div>
+        </div>
+    </div>
+</form>                  
+                        
+                        
+                        
+
+<button type="button" id="submitTestBtn">Завершить тест</button>
 
     <div id="finalScreen">
         <h2>Тест завершен!</h2>
-        <p id="finalMessage"></p>
-        <p>Спасибо за участие. Мы свяжемся с вами в ближайшее время.</p>
+        <p id="finalScore"></p>
+        <p>Спасибо за участие. Результаты будут обработаны.</p>
+    </div>
+
+    <div class="loading" id="loadingIndicator">
+        <p>Отправка результатов...</p>
     </div>
 
     <script>
-        // Скрываем тест при загрузке
-        document.getElementById('testContainer').style.display = 'none';
-        document.getElementById('finalScreen').style.display = 'none';
+        // Правильные ответы
+        const correctAnswers = {
+            q1: "b", q2: "c", q3: "b", q4: "b", q5: "b",
+            q6: "a", q7: "a", q8: "c", q9: "a", q10: "a",
+            // ... (добавьте правильные ответы для всех вопросов)
+            q90: "a", q91: "a", q92: "a", q93: "d", q94: "d",
+            q95: "a", q96: "a"
+        };
 
-        // Обработчик начала теста
+        // Telegram Bot API токен и chat ID
+        const BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN';
+        const CHAT_ID = 'YOUR_TELEGRAM_CHAT_ID';
+
         document.getElementById('startTestBtn').addEventListener('click', function() {
             const userName = document.getElementById('userName').value;
             const userPhone = document.getElementById('userPhone').value;
             const userPosition = document.getElementById('userPosition').value;
-
-            if (!userName || !userPhone || !userPosition) {
+            
+            if (userName && userPhone && userPosition) {
+                document.getElementById('userInfo').style.display = 'none';
+                document.getElementById('testContainer').style.display = 'block';
+            } else {
                 alert('Пожалуйста, заполните все поля!');
-                return;
             }
-
-            document.getElementById('userInfo').style.display = 'none';
-            document.getElementById('testContainer').style.display = 'block';
         });
 
-        // Правильные ответы
-        const correctAnswers = {
-            q1: "b", q2: "c", q3: "b", q4: "b", q5: "b", q6: "a", q7: "a", q8: "c", q9: "a", q10: "a",
-            q11: "a", q12: "b", q13: "a", q14: "c", q15: "a", q16: "a", q17: "a", q18: "b", q19: "a", q20: "a",
-            q21: "a", q22: "b", q23: "b", q24: "b", q25: "b", q26: "b", q27: "b", q28: "c", q29: "b", q30: "b"
-        };
+        document.getElementById('submitTestBtn').addEventListener('click', function() {
+            calculateAndSendResults();
+        });
 
-        // Тексты вопросов и вариантов ответов
-        const questionTexts = {
-            q1: "1. Какой инструмент используется для нарезания наружной резьбы вручную?",
-            q2: "2. Как называется инструмент для выколачивания штифтов и валов?",
-            q3: "3. Какой инструмент применяется для гибки листового металла?",
-            q4: "4. Как называется инструмент для удаления заусенцев?",
-            q5: "5. Какой инструмент используют для разметки металла?",
-            q6: "6. Какой инструмент нужен для выравнивания кромок детали?",
-            q7: "7. Как называется инструмент для пробивания отверстий в металле?",
-            q8: "8. Какой инструмент используют для натягивания пружин?",
-            q9: "9. Как называется инструмент для выравнивания валов?",
-            q10: "10. Какой инструмент применяют для снятия фасок?",
-            q11: "1. Какой инструмент измеряет глубину паза?",
-            q12: "2. Какой прибор измеряет отклонение от плоскостности?",
-            q13: "3. Какой инструмент измеряет шаг резьбы?",
-            q14: "4. Как называется прибор для измерения углов?",
-            q15: "5. Какой инструмент измеряет биение вала?",
-            q16: "6. Какой инструмент используют для проверки прямого угла?",
-            q17: "7. Какой прибор измеряет зазор между деталями?",
-            q18: "8. Какой инструмент измеряет наружный диаметр с высокой точностью?",
-            q19: "9. Как называется прибор для проверки соосности?",
-            q20: "10. Какой инструмент измеряет шероховатость поверхности?",
-            q21: "1. Какой резец используется для чернового точения?",
-            q22: "2. Какой угол у сверла по металлу стандартного типа?",
-            q23: "3. Как называется режущая часть фрезы?",
-            q24: "4. Какой инструмент используют для чистовой обработки отверстий?",
-            q25: "5. Какой материал чаще всего используют для изготовления твердосплавных пластин?",
-            q26: "6. Как называется угол между передней поверхностью резца и плоскостью резания?",
-            q27: "7. Какой инструмент используют для нарезания внутренней резьбы?",
-            q28: "8. Как называется процесс заточки резца для восстановления режущих кромок?",
-            q29: "9. Какой параметр определяет стойкость инструмента?",
-            q30: "10. Как называется инструмент для обработки торцов?"
-        };
-
-        const optionTexts = {
-            q1: { a: "а) Метчик", b: "б) Плашка", c: "в) Зенкер", d: "г) Развертка" },
-            q2: { a: "а) Киянка", b: "б) Молоток-гвоздодер", c: "в) Бородок", d: "г) Зубило" },
-            q3: { a: "а) Тиски", b: "б) Круглогубцы", c: "в) Киянка", d: "г) Оправка" },
-            q4: { a: "а) Шабер", b: "б) Напильник", c: "в) Надфиль", d: "г) Рашпиль" },
-            q5: { a: "а) Кернер", b: "б) Чертилка", c: "в) Штангенциркуль", d: "г) Угольник" },
-            q6: { a: "а) Рифлёный молоток", b: "б) Киянка", c: "в) Ручной рубанок", d: "г) Шабровка" },
-            q7: { a: "а) Пробойник", b: "б) Зенкер", c: "в) Сверло", d: "г) Долото" },
-            q8: { a: "а) Клещи", b: "б) Плоскогубцы", c: "в) Специальные захваты", d: "г) Разводной ключ" },
-            q9: { a: "а) Правильная плита", b: "б) Рихтовальные клещи", c: "в) Притир", d: "г) Шабровка" },
-            q10: { a: "а) Зенковка", b: "б) Развертка", c: "в) Шабер", d: "г) Напильник" },
-            q11: { a: "а) Штангенглубиномер", b: "б) Микрометр", c: "в) Нутромер", d: "г) Индикатор" },
-            q12: { a: "а) Щуп", b: "б) Линейка-поверочная", c: "в) Уровень", d: "г) Индикатор" },
-            q13: { a: "а) Резьбомер", b: "б) Штангенциркуль", c: "в) Микрометр", d: "г) Угломер" },
-            q14: { a: "а) Угольник", b: "б) Транспортир", c: "в) Угломер", d: "г) Нивелир" },
-            q15: { a: "а) Индикатор часового типа", b: "б) Штангенциркуль", c: "в) Микрометр", d: "г) Нутромер" },
-            q16: { a: "а) Угольник", b: "б) Уровень", c: "в) Линейка", d: "г) Щуп" },
-            q17: { a: "а) Щуп", b: "б) Микрометр", c: "в) Штангенциркуль", d: "г) Нутромер" },
-            q18: { a: "а) Штангенциркуль", b: "б) Микрометр", c: "в) Нутромер", d: "г) Резьбомер" },
-            q19: { a: "а) Индикаторная стойка", b: "б) Уровень", c: "в) Теодолит", d: "г) Нивелир" },
-            q20: { a: "а) Профилометр", b: "б) Микрометр", c: "в) Щуп", d: "г) Индикатор" },
-            q21: { a: "а) Проходной отогнутый", b: "б) Расточной", c: "в) Подрезной", d: "г) Резьбовой" },
-            q22: { a: "а) 90°", b: "б) 118°", c: "в) 135°", d: "г) 60°" },
-            q23: { a: "а) Хвостовик", b: "б) Зуб", c: "в) Лезвие", d: "г) Кромка" },
-            q24: { a: "а) Зенкер", b: "б) Развертка", c: "в) Метчик", d: "г) Сверло" },
-            q25: { a: "а) Быстрорежущая сталь", b: "б) ВК8", c: "в) P6M5", d: "г) У8А" },
-            q26: { a: "а) Главный угол", b: "б) Передний угол", c: "в) Угол заострения", d: "г) Угол наклона" },
-            q27: { a: "а) Плашка", b: "б) Метчик", c: "в) Зенкер", d: "г) Развертка" },
-            q28: { a: "а) Правка", b: "б) Закалка", c: "в) Переточка", d: "г) Отпуск" },
-            q29: { a: "а) Твердость", b: "б) Время работы до затупления", c: "в) Угол заточки", d: "г) Скорость резания" },
-            q30: { a: "а) Проходной резец", b: "б) Подрезной резец", c: "в) Расточной резец", d: "г) Резьбовой резец" }
-        };
-
-        // Обработчик отправки теста
-        document.getElementById('submitBtn').addEventListener('click', function() {
+        function calculateAndSendResults() {
             const userName = document.getElementById('userName').value;
             const userPhone = document.getElementById('userPhone').value;
             const userPosition = document.getElementById('userPosition').value;
-
+            
             let score = 0;
             const totalQuestions = Object.keys(correctAnswers).length;
             const userAnswers = {};
             
-            // Проверка ответов и сбор данных
+            // Собираем ответы и подсчитываем баллы
             for (let i = 1; i <= totalQuestions; i++) {
-                const questionName = "q" + i;
+                const questionName = 'q' + i;
                 const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
                 
                 if (selectedOption) {
@@ -271,89 +1487,60 @@
                     if (selectedOption.value === correctAnswers[questionName]) {
                         score++;
                     }
-                } else {
-                    userAnswers[questionName] = "Нет ответа";
                 }
             }
-
-            // Вычисление результата
+            
             const percentage = Math.round((score / totalQuestions) * 100);
-            let message = `Вы ответили правильно на ${score} из ${totalQuestions} вопросов (${percentage}%). `;
             
-            if (percentage >= 80) {
-                message += "Отличный результат!";
-            } else if (percentage >= 50) {
-                message += "Средний результат.";
-            } else {
-                message += "Низкий результат.";
-            }
-            
-            // Отображение результата для пользователя
-            document.getElementById('result').innerHTML = message;
-
-            // Подготовка данных для отправки
-            const testData = {
-                userName: userName,
-                userPhone: userPhone,
-                userPosition: userPosition,
-                score: score,
-                totalQuestions: totalQuestions,
-                percentage: percentage,
-                answers: userAnswers,
-                correctAnswers: correctAnswers,
-                questionTexts: questionTexts,
-                optionTexts: optionTexts,
-                timestamp: new Date().toISOString()
-            };
-
-            // Отправка данных на сервер (имитация)
-            sendResultsToManager(testData);
-
-            // Показываем финальный экран
+            // Показываем результат
             document.getElementById('testContainer').style.display = 'none';
             document.getElementById('finalScreen').style.display = 'block';
-            document.getElementById('finalMessage').textContent = message;
-        });
-
-        // Функция для отправки результатов руководителю
-        function sendResultsToManager(testData) {
-            // Здесь должен быть реальный код отправки на сервер
-            // Для примера просто выводим в консоль
-            console.log("Результаты теста отправлены руководителю:", testData);
+            document.getElementById('finalScore').textContent = `Ваш результат: ${score} из ${totalQuestions} (${percentage}%)`;
             
-            // Формируем сообщение для руководителя
-            let managerMessage = `*Результаты тестирования кандидата*\n\n`;
-            managerMessage += `*Кандидат:* ${testData.userName}\n`;
-            managerMessage += `*Телефон:* ${testData.userPhone}\n`;
-            managerMessage += `*Должность:* ${testData.userPosition}\n`;
-            managerMessage += `*Результат:* ${testData.score}/${testData.totalQuestions} (${testData.percentage}%)\n\n`;
-            managerMessage += `*Подробные ответы:*\n\n`;
-
-            // Добавляем ответы по каждому вопросу
-            for (let i = 1; i <= testData.totalQuestions; i++) {
-                const q = 'q' + i;
-                const questionText = testData.questionTexts[q];
-                const userAnswer = testData.answers[q];
-                const correctAnswer = testData.correctAnswers[q];
-                
-                managerMessage += `${questionText}\n`;
-                managerMessage += `- Ответ кандидата: ${testData.optionTexts[q][userAnswer] || 'Нет ответа'}\n`;
-                managerMessage += `- Правильный ответ: ${testData.optionTexts[q][correctAnswer]}\n`;
-                
-                if (userAnswer === correctAnswer) {
-                    managerMessage += `✅ Верно\n\n`;
-                } else {
-                    managerMessage += `❌ Неверно\n\n`;
-                }
+            // Показываем индикатор загрузки
+            document.getElementById('loadingIndicator').style.display = 'block';
+            
+            // Формируем сообщение для Telegram
+            let message = `Новый результат тестирования:\n`;
+            message += `Имя: ${userName}\n`;
+            message += `Телефон: ${userPhone}\n`;
+            message += `Должность: ${userPosition}\n`;
+            message += `Результат: ${score}/${totalQuestions} (${percentage}%)\n\n`;
+            message += `Ответы:\n`;
+            
+            // Добавляем ответы пользователя
+            for (const [question, answer] of Object.entries(userAnswers)) {
+                message += `${question}: ${answer} ${answer === correctAnswers[question] ? '✅' : '❌'}\n`;
             }
-
-            // В реальном приложении здесь должен быть AJAX-запрос к серверу
-            // или отправка через Email API, Telegram Bot API и т.д.
-            console.log(managerMessage);
             
-            // Или отправка через WhatsApp (в реальном приложении нужно использовать API)
-             const whatsappUrl = `https://wa.me/79776282906?text=${encodeURIComponent(managerMessage)}`;
-            // window.open(whatsappUrl, '_blank');
+            // Отправляем в Telegram
+            sendToTelegram(message);
+        }
+        
+        function sendToTelegram(message) {
+            const url = `https://api.telegram.org/bot${7676908794:AAFxHPKev5ry44uzFEjoEzyp_uMvS72J1Aw}/sendMessage`;
+            
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: -1002821460809,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                document.getElementById('loadingIndicator').style.display = 'none';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById('loadingIndicator').style.display = 'none';
+                alert('Произошла ошибка при отправке результатов. Пожалуйста, свяжитесь с нами.');
+            });
         }
     </script>
 </body>
