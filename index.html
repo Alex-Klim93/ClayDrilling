@@ -1611,15 +1611,30 @@
         return isNameValid && isPhoneValid && isPositionValid;
     }
 
-    // Функция для получения текста вопроса по номеру
-    function getQuestionText(questionNumber) {
-        const questionElements = document.querySelectorAll('.question p');
+    // Функция для получения полного текста вопроса и всех вариантов ответов
+    function getFullQuestionData(questionNumber) {
+        const questionElements = document.querySelectorAll('.question');
         for (const element of questionElements) {
-            if (element.textContent.includes(`${questionNumber}.`)) {
-                return element.textContent.trim();
+            const questionTextElement = element.querySelector('p');
+            if (questionTextElement && questionTextElement.textContent.includes(`${questionNumber}.`)) {
+                const questionText = questionTextElement.textContent.trim();
+                const options = Array.from(element.querySelectorAll('.options label')).map(label => {
+                    return {
+                        value: label.querySelector('input').value,
+                        text: label.textContent.trim()
+                    };
+                });
+                
+                return {
+                    text: questionText,
+                    options: options
+                };
             }
         }
-        return `Вопрос ${questionNumber}`;
+        return {
+            text: `Вопрос ${questionNumber}`,
+            options: []
+        };
     }
 
     // Функция для создания HTML-файла с результатами
@@ -1684,6 +1699,19 @@
             border-radius: 5px;
             margin-top: 30px;
         }
+        .options-list {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .user-choice {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .correct-answer {
+            font-weight: bold;
+            color: green;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -1718,14 +1746,39 @@
                 currentSection = sectionTitle;
             }
             
+            // Формируем список вариантов ответов
+            let optionsHtml = '<div class="options-list">';
+            q.options.forEach(option => {
+                optionsHtml += `<div>${option.text}</div>`;
+            });
+            optionsHtml += '</div>';
+            
+            // Определяем выбранный ответ
+            let userAnswerHtml = '';
+            if (q.userAnswer !== null) {
+                const selectedOption = q.options.find(opt => opt.value === q.userAnswer);
+                userAnswerHtml = `<div class="user-choice ${q.isCorrect ? 'correct' : 'incorrect'}">
+                    <strong>Выбранный ответ:</strong> ${selectedOption ? selectedOption.text : q.userAnswer}
+                    ${q.isCorrect ? '✔' : '✖'}
+                </div>`;
+            } else {
+                userAnswerHtml = `<div class="user-choice not-answered">
+                    <strong>Выбранный ответ:</strong> Нет ответа ✖
+                </div>`;
+            }
+            
+            // Определяем правильный ответ
+            const correctOption = q.options.find(opt => opt.value === q.correctAnswer);
+            const correctAnswerHtml = `<div class="correct-answer">
+                <strong>Правильный ответ:</strong> ${correctOption ? correctOption.text : q.correctAnswer}
+            </div>`;
+            
             html += `
     <div class="question-result">
         <p><strong>Вопрос ${q.number}:</strong> ${q.text}</p>
-        <p><strong>Правильный ответ:</strong> ${q.correctAnswer}</p>
-        <p class="${q.userAnswer === null ? 'not-answered' : q.isCorrect ? 'correct' : 'incorrect'}">
-            <strong>Ответ кандидата:</strong> ${q.userAnswer !== null ? q.userAnswer : 'Нет ответа'} 
-            ${q.isCorrect ? '✔' : '✖'}
-        </p>
+        ${optionsHtml}
+        ${userAnswerHtml}
+        ${correctAnswerHtml}
     </div>`;
         });
         
@@ -1801,7 +1854,7 @@
         for (let i = 1; i <= totalQuestions; i++) {
             const questionName = 'q' + i;
             const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
-            const questionText = getQuestionText(i);
+            const questionData = getFullQuestionData(i);
             const correctAnswer = correctAnswers[questionName];
             
             if (selectedOption) {
@@ -1815,7 +1868,8 @@
                 // Сохраняем детали вопроса для отправки
                 questionsDetails.push({
                     number: i,
-                    text: questionText,
+                    text: questionData.text,
+                    options: questionData.options,
                     userAnswer: selectedOption.value,
                     correctAnswer: correctAnswer,
                     isCorrect: isCorrect
@@ -1824,7 +1878,8 @@
                 // Если вопрос не был отвечен
                 questionsDetails.push({
                     number: i,
-                    text: questionText,
+                    text: questionData.text,
+                    options: questionData.options,
                     userAnswer: null,
                     correctAnswer: correctAnswer,
                     isCorrect: false
