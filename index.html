@@ -1483,8 +1483,8 @@
     };
 
     // Telegram Bot API
-    const BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN';
-    const CHAT_ID = 'YOUR_TELEGRAM_CHAT_ID';
+    const BOT_TOKEN = '7676908794:AAFxHPKev5ry44uzFEjoEzyp_uMvS72J1Aw';
+    const CHAT_ID = '-1002821460809';
 
     document.addEventListener('DOMContentLoaded', function() {
         // Элементы формы
@@ -1611,7 +1611,167 @@
         return isNameValid && isPhoneValid && isPositionValid;
     }
 
-    function calculateAndSendResults() {
+    // Функция для получения текста вопроса по номеру
+    function getQuestionText(questionNumber) {
+        const questionElements = document.querySelectorAll('.question p');
+        for (const element of questionElements) {
+            if (element.textContent.includes(`${questionNumber}.`)) {
+                return element.textContent.trim();
+            }
+        }
+        return `Вопрос ${questionNumber}`;
+    }
+
+    // Функция для создания HTML-файла с результатами
+    function createResultsHTML(userData, scoreData, questionsDetails) {
+        const totalQuestions = Object.keys(correctAnswers).length;
+        const percentage = Math.round((scoreData.score / totalQuestions) * 100);
+        
+        let html = `<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты тестирования ${userData.name}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .user-info {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .result-summary {
+            background-color: #e8f4fc;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .question-result {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .not-answered {
+            color: #666;
+        }
+        .section-title {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Результаты тестирования</h1>
+    
+    <div class="user-info">
+        <h2>Информация о кандидате</h2>
+        <p><strong>ФИО:</strong> ${userData.name}</p>
+        <p><strong>Телефон:</strong> ${userData.phone}</p>
+        <p><strong>Должность:</strong> ${userData.position}</p>
+        <p><strong>Дата тестирования:</strong> ${new Date().toLocaleString()}</p>
+    </div>
+    
+    <div class="result-summary">
+        <h2>Итоговый результат</h2>
+        <p><strong>Правильных ответов:</strong> ${scoreData.score} из ${totalQuestions}</p>
+        <p><strong>Процент правильных ответов:</strong> ${percentage}%</p>
+    </div>
+    
+    <h2>Детализация ответов</h2>`;
+        
+        // Добавляем вопросы по разделам
+        let currentSection = '';
+        questionsDetails.forEach((q, index) => {
+            // Определяем раздел (каждые 10 вопросов - новый раздел)
+            const sectionNumber = Math.ceil(q.number / 10);
+            const sectionTitle = document.querySelectorAll('.section-title')[sectionNumber - 1]?.textContent || `Раздел ${sectionNumber}`;
+            
+            // Если раздел изменился, добавляем заголовок
+            if (sectionTitle !== currentSection) {
+                html += `<div class="section-title">${sectionTitle}</div>`;
+                currentSection = sectionTitle;
+            }
+            
+            html += `
+    <div class="question-result">
+        <p><strong>Вопрос ${q.number}:</strong> ${q.text}</p>
+        <p><strong>Правильный ответ:</strong> ${q.correctAnswer}</p>
+        <p class="${q.userAnswer === null ? 'not-answered' : q.isCorrect ? 'correct' : 'incorrect'}">
+            <strong>Ответ кандидата:</strong> ${q.userAnswer !== null ? q.userAnswer : 'Нет ответа'} 
+            ${q.isCorrect ? '✔' : '✖'}
+        </p>
+    </div>`;
+        });
+        
+        html += `</body></html>`;
+        
+        return html;
+    }
+
+    // Функция для создания Blob из HTML-контента
+    function createHTMLBlob(htmlContent) {
+        return new Blob([htmlContent], { type: 'text/html' });
+    }
+
+    // Функция для отправки файла через Telegram Bot API
+    async function sendFileToTelegram(blob, fileName, caption) {
+        if (!BOT_TOKEN || !CHAT_ID) {
+            console.error('Не указаны BOT_TOKEN или CHAT_ID');
+            return;
+        }
+
+        // Создаем FormData для отправки файла
+        const formData = new FormData();
+        formData.append('chat_id', CHAT_ID);
+        formData.append('caption', caption);
+        formData.append('document', blob, fileName);
+
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`;
+        
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            return await response.json();
+        } catch (error) {
+            console.error('Ошибка при отправке файла в Telegram:', error);
+            throw error;
+        }
+    }
+
+    async function calculateAndSendResults() {
         // Получение данных пользователя
         const userNameInput = document.getElementById('userName');
         const userPhoneInput = document.getElementById('userPhone');
@@ -1636,22 +1796,45 @@
         let score = 0;
         const totalQuestions = Object.keys(correctAnswers).length;
         const userAnswers = {};
+        const questionsDetails = [];
         
         for (let i = 1; i <= totalQuestions; i++) {
             const questionName = 'q' + i;
             const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+            const questionText = getQuestionText(i);
+            const correctAnswer = correctAnswers[questionName];
             
             if (selectedOption) {
                 userAnswers[questionName] = selectedOption.value;
-                if (selectedOption.value === correctAnswers[questionName]) {
+                
+                const isCorrect = selectedOption.value === correctAnswer;
+                if (isCorrect) {
                     score++;
                 }
+                
+                // Сохраняем детали вопроса для отправки
+                questionsDetails.push({
+                    number: i,
+                    text: questionText,
+                    userAnswer: selectedOption.value,
+                    correctAnswer: correctAnswer,
+                    isCorrect: isCorrect
+                });
+            } else {
+                // Если вопрос не был отвечен
+                questionsDetails.push({
+                    number: i,
+                    text: questionText,
+                    userAnswer: null,
+                    correctAnswer: correctAnswer,
+                    isCorrect: false
+                });
             }
         }
         
         const percentage = Math.round((score / totalQuestions) * 100);
         
-        // Показ результатов
+        // Показ результатов пользователю
         const testContainer = document.getElementById('testContainer');
         const finalScreen = document.getElementById('finalScreen');
         const finalScore = document.getElementById('finalScore');
@@ -1662,57 +1845,45 @@
         if (finalScore) finalScore.textContent = `Ваш результат: ${score} из ${totalQuestions} (${percentage}%)`;
         if (loadingIndicator) loadingIndicator.style.display = 'block';
         
-        // Формирование сообщения для Telegram
-        let message = `Новый результат тестирования:\n`;
-        message += `Имя: ${userName}\n`;
-        message += `Телефон: ${userPhone}\n`;
-        message += `Должность: ${userPosition}\n`;
-        message += `Результат: ${score}/${totalQuestions} (${percentage}%)\n\n`;
-        message += `Ответы:\n`;
+        // Подготовка данных для отправки
+        const userData = {
+            name: userName,
+            phone: userPhone,
+            position: userPosition
+        };
         
-        for (const [question, answer] of Object.entries(userAnswers)) {
-            message += `${question}: ${answer} ${answer === correctAnswers[question] ? '✅' : '❌'}\n`;
-        }
+        const scoreData = {
+            score: score,
+            total: totalQuestions,
+            percentage: percentage
+        };
         
-        // Отправка в Telegram
-        sendToTelegram(message, loadingIndicator);
-    }
-    
-    function sendToTelegram(message, loadingIndicator) {
-        if (!BOT_TOKEN || !CHAT_ID) {
-            console.error('Не указаны BOT_TOKEN или CHAT_ID');
-            if (loadingIndicator) loadingIndicator.style.display = 'none';
-            return;
-        }
-
-        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-        
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                chat_id: CHAT_ID,
-                text: message,
-                parse_mode: 'Markdown'
-            })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Успешная отправка:', data);
-            if (loadingIndicator) loadingIndicator.style.display = 'none';
-        })
-        .catch((error) => {
-            console.error('Ошибка отправки:', error);
-            if (loadingIndicator) loadingIndicator.style.display = 'none';
+        try {
+            // 1. Создаем HTML-файл с результатами
+            const htmlContent = createResultsHTML(userData, scoreData, questionsDetails);
+            const htmlBlob = createHTMLBlob(htmlContent);
+            
+            // 2. Формируем краткое сообщение для Telegram
+            const shortMessage = `📝 Новый результат тестирования:\n` +
+                                `👤 Имя: ${userData.name}\n` +
+                                `📱 Телефон: ${userData.phone}\n` +
+                                `💼 Должность: ${userData.position}\n` +
+                                `🏆 Результат: ${scoreData.score}/${scoreData.total} (${scoreData.percentage}%)`;
+            
+            // 3. Отправляем файл с результатами в Telegram
+            await sendFileToTelegram(
+                htmlBlob, 
+                `Результаты_${userData.name.replace(/\s+/g, '_')}.html`, 
+                shortMessage
+            );
+            
+            console.log('Результаты успешно отправлены в Telegram');
+        } catch (error) {
+            console.error('Ошибка при отправке результатов:', error);
             alert('Произошла ошибка при отправке результатов. Пожалуйста, свяжитесь с нами.');
-        });
+        } finally {
+            if (loadingIndicator) loadingIndicator.style.display = 'none';
+        }
     }
 </script>
 </body>
