@@ -1,1 +1,1 @@
-https://alex-klim93.github.io/Svadiba/
+https://alex-klim93.github.io/test506/
