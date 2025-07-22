@@ -1613,29 +1613,51 @@
 
     // Функция для получения полного текста вопроса и всех вариантов ответов
     function getFullQuestionData(questionNumber) {
-        const questionElements = document.querySelectorAll('.question');
-        for (const element of questionElements) {
+    // Находим все элементы с вопросами
+    const questionElements = document.querySelectorAll('.question');
+    
+    // Счетчик для отслеживания абсолютного номера вопроса
+    let absoluteQuestionCounter = 0;
+    
+    // Проходим по всем вопросам и ищем нужный по номеру
+    for (const element of questionElements) {
+        absoluteQuestionCounter++;
+        
+        // Если это нужный вопрос
+        if (absoluteQuestionCounter === questionNumber) {
             const questionTextElement = element.querySelector('p');
-            if (questionTextElement && questionTextElement.textContent.includes(`${questionNumber}.`)) {
-                const questionText = questionTextElement.textContent.trim();
-                const options = Array.from(element.querySelectorAll('.options label')).map(label => {
-                    return {
-                        value: label.querySelector('input').value,
-                        text: label.textContent.trim()
-                    };
-                });
-                
+            let questionText = questionTextElement ? questionTextElement.textContent.trim() : `Вопрос ${questionNumber}`;
+            
+            // Удаляем номер вопроса из текста, если он уже есть
+            questionText = questionText.replace(/^\d+\.\s*/, '').trim();
+            
+            // Добавляем правильный номер вопроса
+            questionText = `${questionNumber}. ${questionText}`;
+            
+            // Собираем варианты ответов
+            const options = Array.from(element.querySelectorAll('.options label')).map(label => {
+                const input = label.querySelector('input');
+                // Извлекаем текст ответа, удаляя метку (a), б) и т.д.)
+                const optionText = label.textContent.replace(/^[а-гА-Гa-dA-D]\)\s*/, '').trim();
                 return {
-                    text: questionText,
-                    options: options
+                    value: input ? input.value : '',
+                    text: optionText
                 };
-            }
+            });
+            
+            return {
+                text: questionText,
+                options: options
+            };
         }
-        return {
-            text: `Вопрос ${questionNumber}`,
-            options: []
-        };
     }
+    
+    // Если вопрос не найден, возвращаем пустые данные
+    return {
+        text: `Вопрос ${questionNumber}`,
+        options: []
+    };
+}
 
     // Функция для создания HTML-файла с результатами
     function createResultsHTML(userData, scoreData, questionsDetails) {
@@ -1737,8 +1759,9 @@
         let currentSection = '';
         questionsDetails.forEach((q, index) => {
             // Определяем раздел (каждые 10 вопросов - новый раздел)
-            const sectionNumber = Math.ceil(q.number / 10);
-            const sectionTitle = document.querySelectorAll('.section-title')[sectionNumber - 1]?.textContent || `Раздел ${sectionNumber}`;
+            const sectionNumber = Math.ceil(q.number/10);
+            const sectionTitles = document.querySelectorAll('.section-title');
+            const sectionTitle = sectionTitles[sectionNumber - 1]?.textContent || `Раздел ${sectionNumber}`;
             
             // Если раздел изменился, добавляем заголовок
             if (sectionTitle !== currentSection) {
@@ -1746,12 +1769,13 @@
                 currentSection = sectionTitle;
             }
             
-            // Формируем список вариантов ответов
-            let optionsHtml = '<div class="options-list">';
-            q.options.forEach(option => {
-                optionsHtml += `<div>${option.text}</div>`;
-            });
-            optionsHtml += '</div>';
+            // В функции createResultsHTML замените формирование optionsHtml на:
+let optionsHtml = '<div class="options-list">';
+q.options.forEach((option, idx) => {
+    const optionLetter = String.fromCharCode(97 + idx); // a, b, c, d
+    optionsHtml += `<div>  ${option.text}</div>`;
+});
+optionsHtml += '</div>';
             
             // Определяем выбранный ответ
             let userAnswerHtml = '';
